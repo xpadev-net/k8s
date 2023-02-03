@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingress-nginx-rule
-  namespace: ingress-nginx
+  namespace: default
 spec:
   rules:
   - host: video-host
