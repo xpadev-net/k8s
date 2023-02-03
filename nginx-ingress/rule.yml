@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-nginx-rule
+spec:
+  rules:
+  - host: video-host
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: video-host
+            port:
+              number: 3000
+  ingressClassName: nginx
