@@ -23,9 +23,13 @@ metadata:
   name: ingress-nginx-rule-argocd
   namespace: argocd
 spec:
+  tls:
+    - hosts:
+        - argocd
+      secretName: selfsigning-cert
   rules:
   - host: argocd
-    https:
+    http:
       paths:
       - path: /
         pathType: Prefix
@@ -35,3 +39,11 @@ spec:
             port:
               number: 8080
   ingressClassName: nginx
+---
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: selfsigning-issuer
+  namespace: argocd
+spec:
+  selfSigned: {}
