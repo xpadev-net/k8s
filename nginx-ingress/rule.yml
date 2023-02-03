@@ -25,7 +25,7 @@ metadata:
 spec:
   rules:
   - host: argocd
-    http:
+    https:
       paths:
       - path: /
         pathType: Prefix
