@@ -7,9 +7,9 @@ metadata:
 spec:
   containers:
     - name: video-host
-      image: ghcr.io/xpadev-net/video_host:v0.0.3
+      image: ghcr.io/xpadev-net/video_host:v0.0.4
       ports:
-      - containerPort: 3000
+        - containerPort: 3000
   imagePullSecrets:
     - name: ghcr-login-secret
 ---
@@ -21,7 +21,7 @@ spec:
   selector:
     app: video-host
   ports:
-  - protocol: TCP
-    port: 3000
-    targetPort: 3000
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
   type: LoadBalancer
