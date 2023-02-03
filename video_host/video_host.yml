@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: video_host
+  name: video-host
   labels:
-    app: video_host
+    app: video-host
 spec:
   containers:
-    - name: video_host
+    - name: video-host
       image: ghcr.io/xpadev-net/video_host:v0.0.2
       ports:
       - containerPort: 3000
@@ -14,10 +14,10 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: video_host
+  name: video-host
 spec:
   selector:
-    app: video_host
+    app: video-host
   ports:
   - protocol: TCP
     port: 3000
