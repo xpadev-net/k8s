@@ -10,6 +10,17 @@ spec:
       image: ghcr.io/xpadev-net/video_host:v0.0.5
       ports:
         - containerPort: 3000
+      env:
+        - name: NEXT_PUBLIC_API_ENDPOINT
+          valueFrom:
+            configMapKeyRef:
+              name: video-host
+              key: NEXT_PUBLIC_API_ENDPOINT
+        - name: NEXT_PUBLIC_SITE_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: video-host
+              key: NEXT_PUBLIC_SITE_NAME
   imagePullSecrets:
     - name: ghcr-login-secret
 ---
