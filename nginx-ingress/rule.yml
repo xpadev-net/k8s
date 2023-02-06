@@ -15,4 +15,14 @@ spec:
             name: video-host
             port:
               number: 3000
+  - host: dashy
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: dashy
+            port:
+              number: 8080
   ingressClassName: nginx
