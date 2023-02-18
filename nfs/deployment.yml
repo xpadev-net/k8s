@@ -26,11 +26,11 @@ spec:
             - name: PROVISIONER_NAME
               value: nifcloud-nas-nfs
             - name: NFS_SERVER
-              value: 192.168.100.1
+              value: 192.168.100.201
             - name: NFS_PATH
-              value: /
+              value: /datatmp/k8s
       volumes:
         - name: nfs-client-root
           nfs:
-            server: 192.168.100.1
-            path: /
+            server: 192.168.100.201
+            path: /datatmp/k8s
