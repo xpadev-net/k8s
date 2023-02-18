@@ -1,4 +1,3 @@
-# Source: eck-operator/templates/operator-namespace.yaml
 apiVersion: v1
 kind: Namespace
 metadata:
@@ -10,11 +9,13 @@ kind: ServiceAccount
 apiVersion: v1
 metadata:
   name: nfs-client-provisioner
+  namespace: nfs-client-provisioner
 ---
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: nfs-client-provisioner-runner
+  namespace: nfs-client-provisioner
 rules:
   - apiGroups: [""]
     resources: ["persistentvolumes"]
@@ -33,6 +34,7 @@ kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: run-nfs-client-provisioner
+  namespace: nfs-client-provisioner
 subjects:
   - kind: ServiceAccount
     name: nfs-client-provisioner
@@ -46,6 +48,7 @@ kind: Role
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: leader-locking-nfs-client-provisioner
+  namespace: nfs-client-provisioner
 rules:
   - apiGroups: [""]
     resources: ["endpoints"]
@@ -55,6 +58,7 @@ kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: leader-locking-nfs-client-provisioner
+  namespace: nfs-client-provisioner
 subjects:
   - kind: ServiceAccount
     name: nfs-client-provisioner
