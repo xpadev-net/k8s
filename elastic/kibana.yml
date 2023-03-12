@@ -7,16 +7,3 @@ spec:
   count: 1
   elasticsearchRef:
     name: locales
----
-kind: Service
-apiVersion: v1
-metadata:
-  name: locales-kb-http-lb
-spec:
-  selector:
-    app: locales-kb-http
-  ports:
-    - protocol: TCP
-      port: 5601
-      targetPort: 5601
-  type: LoadBalancer

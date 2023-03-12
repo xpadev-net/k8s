@@ -9,16 +9,3 @@ spec:
     count: 1
     config:
       node.store.allow_mmap: false
----
-kind: Service
-apiVersion: v1
-metadata:
-  name: locales-es-http-lb
-spec:
-  selector:
-    app: locales-es-http
-  ports:
-    - protocol: TCP
-      port: 9200
-      targetPort: 9200
-  type: LoadBalancer
