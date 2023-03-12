@@ -1,9 +1,22 @@
 apiVersion: kibana.k8s.elastic.co/v1
 kind: Kibana
 metadata:
-  name: quickstart
+  name: local_es
 spec:
   version: 8.6.2
   count: 1
   elasticsearchRef:
-    name: quickstart
+    name: local_es
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: local_es
+spec:
+  selector:
+    app: local_es-kb-http
+  ports:
+    - protocol: TCP
+      port: 5601
+      targetPort: 5601
+  type: LoadBalancer
