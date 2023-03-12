@@ -1,7 +1,7 @@
 apiVersion: elasticsearch.k8s.elastic.co/v1
 kind: Elasticsearch
 metadata:
-  name: local_es
+  name: locales
 spec:
   version: 8.6.2
   nodeSets:
@@ -13,10 +13,10 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: local_es
+  name: locales
 spec:
   selector:
-    app: local_es-es-http
+    app: locales-es-http
   ports:
     - protocol: TCP
       port: 9200

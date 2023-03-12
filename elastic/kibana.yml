@@ -1,20 +1,20 @@
 apiVersion: kibana.k8s.elastic.co/v1
 kind: Kibana
 metadata:
-  name: local_es
+  name: locales
 spec:
   version: 8.6.2
   count: 1
   elasticsearchRef:
-    name: local_es
+    name: locales
 ---
 kind: Service
 apiVersion: v1
 metadata:
-  name: local_es
+  name: locales
 spec:
   selector:
-    app: local_es-kb-http
+    app: locales-kb-http
   ports:
     - protocol: TCP
       port: 5601
