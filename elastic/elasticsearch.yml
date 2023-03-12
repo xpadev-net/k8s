@@ -13,7 +13,7 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: locales
+  name: locales-es-http-lb
 spec:
   selector:
     app: locales-es-http

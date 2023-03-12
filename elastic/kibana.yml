@@ -11,7 +11,7 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: locales
+  name: locales-kb-http-lb
 spec:
   selector:
     app: locales-kb-http
