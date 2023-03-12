@@ -5,33 +5,7 @@ metadata:
 spec:
   version: 8.6.2
   nodeSets:
-  - name: master-nodes
+  - name: default
     count: 1
     config:
       node.store.allow_mmap: false
-      node.roles: ["master"]
-    volumeClaimTemplates:
-    - metadata:
-        name: elasticsearch-data
-      spec:
-        accessModes:
-        - ReadWriteOnce
-        resources:
-          requests:
-            storage: 1Gi
-        storageClassName: nifcloud-nas-nfs
-  - name: data-nodes
-    count: 1
-    config:
-      node.store.allow_mmap: false
-      node.roles: ["data", "ingest"]
-    volumeClaimTemplates:
-    - metadata:
-        name: elasticsearch-data
-      spec:
-        accessModes:
-        - ReadWriteOnce
-        resources:
-          requests:
-            storage: 2Gi
-        storageClassName: nifcloud-nas-nfs
