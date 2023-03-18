@@ -7,7 +7,7 @@ metadata:
 spec:
   containers:
     - name: video-host
-      image: ghcr.io/xpadev-net/video_host:v0.0.13
+      image: ghcr.io/xpadev-net/video_host:v0.0.14
       ports:
         - containerPort: 3000
       env:
@@ -21,6 +21,11 @@ spec:
             configMapKeyRef:
               name: video-host
               key: NEXT_PUBLIC_SITE_NAME
+        - name: NEXT_PUBLIC_CDN_ENDPOINT
+          valueFrom:
+            configMapKeyRef:
+              name: video-host
+              key: NEXT_PUBLIC_CDN_ENDPOINT
   imagePullSecrets:
     - name: ghcr-login-secret
 ---
