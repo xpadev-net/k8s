@@ -1,0 +1,43 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: geekcamp2023-vol5-frontend
+  labels:
+    app: geekcamp2023-vol5-frontend
+spec:
+  containers:
+    - name: geekcamp2023-vol5-frontend
+      image: ghcr.io/geekcamp2023-vol5-team31/frontend:v0.0.1
+      ports:
+        - containerPort: 3000
+      env:
+        - name: NEXT_PUBLIC_API_ENDPOINT
+          valueFrom:
+            configMapKeyRef:
+              name: geekcamp2023-vol5
+              key: NEXT_PUBLIC_API_ENDPOINT
+        - name: NEXT_PUBLIC_GITHUB_CLIENT_ID
+          valueFrom:
+            configMapKeyRef:
+              name: geekcamp2023-vol5
+              key: NEXT_PUBLIC_GITHUB_CLIENT_ID
+        - name: GITHUB_CLIENT_SECRET
+          valueFrom:
+            configMapKeyRef:
+              name: geekcamp2023-vol5
+              key: GITHUB_CLIENT_SECRET
+  imagePullSecrets:
+    - name: ghcr-login-secret
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: geekcamp2023-vol5-frontend
+spec:
+  selector:
+    app: geekcamp2023-vol5-frontend
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+  type: LoadBalancer
