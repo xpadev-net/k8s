@@ -9,7 +9,7 @@ spec:
     - name: geekcamp2023-vol5-backend
       image: ghcr.io/geekcamp2023-vol5-team31/backend:v0.0.5
       ports:
-        - containerPort: 3000
+        - containerPort: 8000
       env:
         - name: HOST
           value: geekcamp-2023-vol5-backend.xpadev.net
