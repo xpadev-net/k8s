@@ -7,7 +7,7 @@ metadata:
 spec:
   containers:
     - name: geekcamp2023-vol5-backend
-      image: ghcr.io/geekcamp2023-vol5-team31/backend:v0.0.5
+      image: ghcr.io/geekcamp2023-vol5-team31/backend:v0.0.6
       ports:
         - containerPort: 8000
       env:
