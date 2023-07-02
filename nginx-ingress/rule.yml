@@ -25,6 +25,16 @@ spec:
             name: geekcamp2023-vol5-frontend
             port:
               number: 3000
+  - host: geekcamp2023-vol5-backend
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: geekcamp2023-vol5-backend
+            port:
+              number: 8000
   - host: dashy
     http:
       paths:
