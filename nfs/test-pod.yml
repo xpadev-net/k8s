@@ -21,6 +21,6 @@ spec:
   - name: nfs-vol1
     persistentVolumeClaim:
       claimName: nfs-pvc
-  - name: nfs-vol1
+  - name: nfs-vol2
     persistentVolumeClaim:
       claimName: nfs2-pvc
