@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    test: nfs-pvc-pod
+  name: nfs-pv-pod1
+spec:
+  affinity:     #起動制限
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+          - matchExpressions:
+            - key: node-role.kubernetes.io/worker
+              operator: In
+              values:
+                - worker   #起動ノード指定
+  containers:
+  - name: nfs-pv-busybox
+    image: busybox
+    command: ["/bin/sh", "-c"]
+    args: [ "tail -f /dev/null" ]
+    volumeMounts:
+    - name: nfs-vol1
+      mountPath: /var/lib/busybox
+      readOnly: false
+  volumes:
+  - name: nfs-vol1
+    persistentVolumeClaim:
+      claimName: nfs-pvc
