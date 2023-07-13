@@ -5,15 +5,6 @@ metadata:
     test: nfs-pvc-pod
   name: nfs-pv-pod1
 spec:
-  affinity:     #起動制限
-    nodeAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-        nodeSelectorTerms:
-          - matchExpressions:
-            - key: node-role.kubernetes.io/worker
-              operator: In
-              values:
-                - worker   #起動ノード指定
   containers:
   - name: nfs-pv-busybox
     image: busybox
