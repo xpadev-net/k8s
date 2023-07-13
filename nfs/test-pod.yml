@@ -12,9 +12,15 @@ spec:
     args: [ "tail -f /dev/null" ]
     volumeMounts:
     - name: nfs-vol1
-      mountPath: /var/lib/busybox
+      mountPath: /dataraid
+      readOnly: false
+    - name: nfs-vol2
+      mountPath: /dataraid2
       readOnly: false
   volumes:
   - name: nfs-vol1
     persistentVolumeClaim:
       claimName: nfs-pvc
+  - name: nfs-vol1
+    persistentVolumeClaim:
+      claimName: nfs2-pvc

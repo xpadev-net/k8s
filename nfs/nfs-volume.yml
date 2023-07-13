@@ -10,7 +10,7 @@ spec:
     - ReadWriteOnce
   nfs:
     server: 192.168.100.201
-    path: "/dataraid2/anime/"
+    path: "/dataraid/anime/"
 ---
 kind: PersistentVolumeClaim
 apiVersion: v1
@@ -18,6 +18,33 @@ metadata:
   name: nfs-pvc
   annotations:
     volume.beta.kubernetes.io/persistent-volume: nfs-pv
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nfs2-pv
+spec:
+  capacity:
+    storage: 5Gi
+  persistentVolumeReclaimPolicy: Retain
+  accessModes:
+    - ReadWriteOnce
+  nfs:
+    server: 192.168.100.201
+    path: "/dataraid2/anime/"
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: nfs2-pvc
+  annotations:
+    volume.beta.kubernetes.io/persistent-volume: nfs2-pv
 spec:
   accessModes:
     - ReadWriteOnce
