@@ -12,7 +12,7 @@ spec:
         - containerPort: 3000
       env:
         - name: ExpressPort
-          value: 3000
+          value: "3000"
         - name: ExpressCorsHost
           value: https://geekmeet.xpadev.net
   imagePullSecrets:
