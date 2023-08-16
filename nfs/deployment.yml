@@ -1,12 +1,13 @@
-apiVersion: apps/v1
 kind: Deployment
+
+apiVersion: apps/v1
 metadata:
   name: nfs-client-provisioner
 spec:
-  replicas: 1
   selector:
     matchLabels:
       app: nfs-client-provisioner
+  replicas: 1
   strategy:
     type: Recreate
   template:
@@ -14,7 +15,6 @@ spec:
       labels:
         app: nfs-client-provisioner
     spec:
-      serviceAccountName: nfs-client-provisioner
       containers:
         - name: nfs-client-provisioner
           image: quay.io/external_storage/nfs-client-provisioner:latest
@@ -23,7 +23,7 @@ spec:
               mountPath: /persistentvolumes
           env:
             - name: PROVISIONER_NAME
-              value: nfs-provisioner
+              value: k8s.xpadev.net/nfs
             - name: NFS_SERVER
               value: 192.168.100.201
             - name: NFS_PATH
