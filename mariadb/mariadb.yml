@@ -6,7 +6,7 @@ metadata:
   name: mariadb-pv-claim
   namespace: default
 spec:
-  storageClassName: managed-nfs-storage
+  storageClassName: nfs-client
   accessModes:
     - ReadWriteOnce
   resources:
