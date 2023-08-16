@@ -2,7 +2,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   annotations:
-    volume.kubernetes.io/storage-class: "nfs"
+    volume.kubernetes.io/storage-class: "nfs-sc"
   labels:
     app.kubernetes.io/instance: mariadb
   name: mariadb-pv-claim
