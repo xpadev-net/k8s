@@ -2,10 +2,11 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   annotations:
-    volume.beta.kubernetes.io/persistent-volume: nfs-pv
-  name: mariadb-pv-claim
+    volume.kubernetes.io/storage-class: "nfs"
   labels:
-    app: mariadb
+    app.kubernetes.io/instance: mariadb
+  name: mariadb-pv-claim
+  namespace: default
 spec:
   accessModes:
     - ReadWriteOnce

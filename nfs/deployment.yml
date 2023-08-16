@@ -1,0 +1,32 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nfs-client-provisioner
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: nfs-client-provisioner
+    spec:
+      serviceAccountName: nfs-client-provisioner
+      containers:
+        - name: nfs-client-provisioner
+          image: quay.io/external_storage/nfs-client-provisioner:latest
+          volumeMounts:
+            - name: nfs-client-root
+              mountPath: /persistentvolumes
+          env:
+            - name: PROVISIONER_NAME
+              value: k8s.local.xpadev.net/nfs
+            - name: NFS_SERVER
+              value: 192.168.100.201
+            - name: NFS_PATH
+              value: /datanvme/k8s
+      volumes:
+        - name: nfs-client-root
+          nfs:
+            server: 192.168.100.201
+            path: /datanvme/k8s
