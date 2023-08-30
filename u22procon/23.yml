@@ -20,7 +20,7 @@ spec:
           - containerPort: 3000
         env:
           - name: NEXT_PUBLIC_API_ENDPOINT
-            value: https://u22procon23-api.xpadev.net
+            value: https://u22procon23-api.xpadev.net/v23
           - name: NEXT_PUBLIC_SITE_NAME
             value: u22procon-23
         livenessProbe:
