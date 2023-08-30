@@ -1,28 +1,40 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: video-host
-  labels:
-    app: video-host
+  name: video-host-deployment
 spec:
-  containers:
-    - name: video-host
-      image: ghcr.io/xpadev-net/video_host_frontend:v0.0.10
-      ports:
-        - containerPort: 3000
-      env:
-        - name: NEXT_PUBLIC_API_ENDPOINT
-          valueFrom:
-            configMapKeyRef:
-              name: video-host
-              key: NEXT_PUBLIC_API_ENDPOINT
-        - name: NEXT_PUBLIC_SITE_NAME
-          valueFrom:
-            configMapKeyRef:
-              name: video-host
-              key: NEXT_PUBLIC_SITE_NAME
-  imagePullSecrets:
-    - name: ghcr-login-secret
+  selector:
+    matchLabels:
+      app: video-host
+  replicas: 1 # You could also consider elastic scaling for this deployment
+  template:
+    metadata:
+      labels:
+        app: video-host
+    spec:
+      containers:
+      - name: video-host
+        image: ghcr.io/xpadev-net/video_host_frontend:v0.0.11
+        ports:
+          - containerPort: 3000
+        env:
+          - name: NEXT_PUBLIC_API_ENDPOINT
+            valueFrom:
+              configMapKeyRef:
+                name: video-host
+                key: NEXT_PUBLIC_API_ENDPOINT
+          - name: NEXT_PUBLIC_SITE_NAME
+            valueFrom:
+              configMapKeyRef:
+                name: video-host
+                key: NEXT_PUBLIC_SITE_NAME
+        resources:
+          limits:
+            memory: 4Gi
+            cpu: "2"
+          requests:
+            memory: 1Gi
+            cpu: "0.5"
 ---
 kind: Service
 apiVersion: v1
