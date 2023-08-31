@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: geekmeet-frontend-deployment
+  name: geekmeet-backend-deployment
 spec:
   revisionHistoryLimit: 1
   selector:
     matchLabels:
-      app: geekmeet-frontend
+      app: geekmeet-backend
   replicas: 1 # You could also consider elastic scaling for this deployment
   template:
     metadata:
       labels:
-        app: geekmeet-frontend
+        app: geekmeet-backend
     spec:
       containers:
       - name: geekmeet-backend
