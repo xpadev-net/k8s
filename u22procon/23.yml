@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: u22procon-23-app
-        image: ghcr.io/xpadev-net/video_host_frontend:v0.0.15
+        image: ghcr.io/xpadev-net/video_host_frontend:v0.0.16
         ports:
           - containerPort: 3000
         env:
