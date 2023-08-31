@@ -46,13 +46,13 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: geekmeet-frontend
+  name: geekmeet-backend
 spec:
   selector:
-    app: geekmeet-frontend
+    app: geekmeet-backend
   ports:
     - protocol: TCP
       port: 3000
       targetPort: 3000
   type: LoadBalancer
-  loadBalancerIP: 192.168.11.4
+  loadBalancerIP: 192.168.11.5
