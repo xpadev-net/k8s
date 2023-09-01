@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: geekmeet-backend
-        image: ghcr.io/xpadev-net/geekmeet_backend:v0.0.6
+        image: ghcr.io/xpadev-net/geekmeet_backend:v0.0.7
         ports:
           - containerPort: 3000
         env:
