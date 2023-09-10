@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: geekcamp2023-vol9-frontend
-          image: ghcr.io/geekcamp2023-vol9-team30/frontend:v0.0.2
+          image: ghcr.io/geekcamp2023-vol9-team30/frontend:v0.0.3
           ports:
             - containerPort: 3000
           livenessProbe:
