@@ -11,7 +11,7 @@ metadata:
   labels:
     app.kubernetes.io/instance: mariadb
   name: next-config-pvc
-  namespace: default
+  namespace: "nextcloud"
 spec:
   storageClassName: nfs-client
   accessModes:
@@ -26,7 +26,7 @@ metadata:
   labels:
     app.kubernetes.io/instance: mariadb
   name: next-data-pvc
-  namespace: default
+  namespace: "nextcloud"
 spec:
   storageClassName: nfs-client
   accessModes:
@@ -41,7 +41,7 @@ metadata:
   labels:
     app.kubernetes.io/instance: mariadb
   name: next-apps-pvc
-  namespace: default
+  namespace: "nextcloud"
 spec:
   storageClassName: nfs-client
   accessModes:
