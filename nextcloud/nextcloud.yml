@@ -73,6 +73,7 @@ spec:
         image: nextcloud
         ports:
           - containerPort: 80
+          - containerPort: 443
         volumeMounts:
           - mountPath: "/var/www/html/config"
             name: next-config
@@ -107,10 +108,12 @@ spec:
   selector:
     app: nextcloud-app
   ports:
-    - protocol: TCP
+    - name: http
+      protocol: TCP
       port: 80
       targetPort: 80
-    - protocol: TCP
+    - name: https
+      protocol: TCP
       port: 443
       targetPort: 443
   type: LoadBalancer
