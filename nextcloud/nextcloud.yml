@@ -73,7 +73,6 @@ spec:
         image: nextcloud
         ports:
           - containerPort: 80
-          - containerPort: 443
         volumeMounts:
           - mountPath: "/var/www/html/config"
             name: next-config
