@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: video-host-deployment
 spec:
+  ImagePullPolicy: Always
   revisionHistoryLimit: 1
   selector:
     matchLabels:
