@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   name: video-host-deployment
 spec:
-  ImagePullPolicy: Always
   revisionHistoryLimit: 1
   selector:
     matchLabels:
@@ -16,7 +15,7 @@ spec:
     spec:
       containers:
       - name: video-host
-        image: ghcr.io/xpadev-net/video_host_frontend:v0.0.20
+        image: ghcr.io/xpadev-net/video_host_frontend:v0.0.21
         ports:
           - containerPort: 3000
         env:
