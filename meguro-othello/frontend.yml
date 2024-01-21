@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: meguro-othello
+spec:
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: meguro-othello-frontend
+  replicas: 1 # You could also consider elastic scaling for this deployment
+  template:
+    metadata:
+      labels:
+        app: meguro-othello-frontend
+    spec:
+      containers:
+        - name: meguro-othello-frontend
+          image: ghcr.io/xpadev-net/meguro-othello:v0.0.1
+          ports:
+            - containerPort: 8080
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            failureThreshold: 1
+            periodSeconds: 10
+          startupProbe:
+            httpGet:
+              path: /
+              port: 8080
+            failureThreshold: 180
+            periodSeconds: 10
+          resources:
+            limits:
+              memory: 4Gi
+              cpu: "2"
+            requests:
+              memory: 1Gi
+              cpu: "0.5"
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: meguro-othello-svc
+spec:
+  selector:
+    app:  meguro-othello-frontend
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: LoadBalancer
