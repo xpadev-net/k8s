@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: meguro-othello-frontend
-          image: ghcr.io/xpadev-net/meguro-othello:v0.0.1
+          image: ghcr.io/xpadev-net/meguro-othello:v0.0.2
           ports:
             - containerPort: 8080
           livenessProbe:
