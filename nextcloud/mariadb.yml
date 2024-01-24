@@ -2,7 +2,8 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   labels:
-    app.kubernetes.io/instance: mariadb
+    app.kubernetes.io/instance: mariadb-pv-claim
+    nfs.io/storage-path: mariadb-pv-claim
   name: mariadb-pv-claim
   namespace: nextcloud
 spec:
