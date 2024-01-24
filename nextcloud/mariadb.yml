@@ -1,0 +1,62 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  labels:
+    app.kubernetes.io/instance: mariadb
+  name: mariadb-pv-claim
+  namespace: nextcloud
+spec:
+  storageClassName: nfs-client
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mariadb-internal-service
+  namespace: nextcloud
+spec:
+  selector:
+    app: mariadb
+  ports:
+    - protocol: TCP
+      port: 3306
+      targetPort: 3306
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mariadb-deployment
+  namespace: nextcloud
+spec: # specification for deployment resource
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mariadb
+  template: # blueprint for pods
+    metadata:
+      labels:
+        app: mariadb # service will look for this label
+    spec: # specification for pods
+      containers:
+      - name: mariadb
+        image: mariadb
+        ports:
+        - containerPort: 3306 #default one
+        env:
+        - name: MARIADB_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mariadb-secret
+              key: mariadb-root-password
+        volumeMounts:
+        - name: mariadb-pv
+          mountPath: /var/lib/mysql
+      volumes:
+      - name: mariadb-pv
+        persistentVolumeClaim:
+          claimName: mariadb-pv-claim
