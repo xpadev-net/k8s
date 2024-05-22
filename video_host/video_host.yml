@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: video-host-deployment
+  namespace: video_host
 spec:
   revisionHistoryLimit: 1
   selector:
@@ -60,6 +61,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: video-host
+  namespace: video_host
 spec:
   selector:
     app: video-host
