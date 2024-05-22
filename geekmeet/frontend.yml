@@ -17,7 +17,7 @@ spec:
       containers:
       - name: geekmeet-frontend
         image: ghcr.io/xpadev-net/geekmeet_frontend:v0.0.9
-        ports:a
+        ports:
           - containerPort: 3000
         env:
           - name: NEXT_PUBLIC_API_ENDPOINT
