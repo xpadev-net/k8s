@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: geekmeet-backend-deployment
+  namespace: geekmeet
 spec:
   revisionHistoryLimit: 1
   selector:
