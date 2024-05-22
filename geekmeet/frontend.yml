@@ -46,6 +46,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: geekmeet-frontend
+  namespace: geekmeet
 spec:
   selector:
     app: geekmeet-frontend
