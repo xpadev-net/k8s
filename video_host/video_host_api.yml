@@ -1,40 +1,37 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: video-host-deployment
+  name: video-host-api-deployment
   namespace: video-host
 spec:
   revisionHistoryLimit: 1
   selector:
     matchLabels:
-      app: video-host
+      app: video-host-api
   replicas: 1 # You could also consider elastic scaling for this deployment
   template:
     metadata:
       labels:
-        app: video-host
+        app: video-host-api
     spec:
       containers:
-        - name: video-host
-          image: ghcr.io/xpadev-net/video_host_frontend:v0.0.23
+        - name: video-host-api
+          image: ghcr.io/xpadev-net/video-host-api:v0.0.1
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
-          env:
-            - name: NEXT_PUBLIC_ENABLE_COMMENTS
-              value: "true"
           envFrom:
             - configMapRef:
-                name: video-host
+                name: video-host-api
           livenessProbe:
             httpGet:
-              path: /api/healthz
+              path: /healthz
               port: 3000
             failureThreshold: 1
             periodSeconds: 10
           startupProbe:
             httpGet:
-              path: /api/healthz
+              path: /healthz
               port: 3000
             failureThreshold: 180
             periodSeconds: 10
@@ -49,11 +46,11 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: video-host
+  name: video-host-api
   namespace: video-host
 spec:
   selector:
-    app: video-host
+    app: video-host-api
   ports:
     - protocol: TCP
       port: 3000
