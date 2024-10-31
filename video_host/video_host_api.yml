@@ -37,10 +37,10 @@ spec:
             periodSeconds: 10
           resources:
             limits:
-              memory: 2Gi
-              cpu: "2"
+              memory: 512Mi
+              cpu: "0.5"
             requests:
-              memory: 1Gi
+              memory: 256Mi
               cpu: "0.5"
 ---
 kind: Service
