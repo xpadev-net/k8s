@@ -15,32 +15,32 @@ spec:
         app: geekmeet-frontend
     spec:
       containers:
-      - name: geekmeet-frontend
-        image: ghcr.io/xpadev-net/geekmeet_frontend:v0.0.9
-        ports:
-          - containerPort: 3000
-        env:
-          - name: NEXT_PUBLIC_API_ENDPOINT
-            value: https://geekmeet-backend.xpadev.net
-        livenessProbe:
-          httpGet:
-            path: /healthz
-            port: 3000
-          failureThreshold: 1
-          periodSeconds: 10
-        startupProbe:
-          httpGet:
-            path: /healthz
-            port: 3000
-          failureThreshold: 180
-          periodSeconds: 10
-        resources:
-          limits:
-            memory: 4Gi
-            cpu: "2"
-          requests:
-            memory: 1Gi
-            cpu: "0.5"
+        - name: geekmeet-frontend
+          image: ghcr.io/xpadev-net/geekmeet_frontend:v0.0.9
+          ports:
+            - containerPort: 3000
+          env:
+            - name: NEXT_PUBLIC_API_ENDPOINT
+              value: https://geekmeet-backend.xpadev.net
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 3000
+            failureThreshold: 1
+            periodSeconds: 10
+          startupProbe:
+            httpGet:
+              path: /healthz
+              port: 3000
+            failureThreshold: 180
+            periodSeconds: 10
+          resources:
+            limits:
+              memory: 1Gi
+              cpu: 1000m
+            requests:
+              memory: 512Mi
+              cpu: 500m
 ---
 kind: Service
 apiVersion: v1
