@@ -12,6 +12,16 @@ spec:
       labels:
         app: cloudflared
     spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: app
+                    operator: In
+                    values:
+                      - cloudflared
+              topologyKey: "topology.kubernetes.io/region"
       containers:
         - name: cloudflared
           image: cloudflare/cloudflared:2024.6.1
