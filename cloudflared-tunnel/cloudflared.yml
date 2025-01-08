@@ -24,6 +24,14 @@ spec:
                       values:
                         - cloudflared
                 topologyKey: "topology.kubernetes.io/region"
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: app
+                    operator: In
+                    values:
+                      - cloudflared
+              topologyKey: "kubernetes.io/hostname"
       containers:
         - name: cloudflared
           image: cloudflare/cloudflared:2024.6.1
