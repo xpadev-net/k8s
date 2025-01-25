@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: video-host
-          image: ghcr.io/xpadev-net/video_host_frontend:v0.0.24
+          image: ghcr.io/xpadev-net/video_host_frontend:v0.0.26
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
