@@ -28,7 +28,7 @@ spec:
             - name: PROVISIONER_NAME
               value: k8s-sigs.io/nfs-subdir-external-provisioner
             - name: NFS_SERVER
-              value: 192.168.100.201
+              value: 192.168.99.201
             - name: NFS_PATH
               value: /datanvme/k8s
       volumes:
