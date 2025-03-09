@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tickets
+  namespace: tickets
+spec:
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: tickets
+  replicas: 1 # You could also consider elastic scaling for this deployment
+  template:
+    metadata:
+      labels:
+        app: tickets
+    spec:
+      containers:
+        - name: tickets
+          image: ghcr.io/xpadev-net/ticket-management:v0.0.2
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+          env:
+            - name: EMAIL_SHOULD_SEND
+              value: "true"
+            - name: NEXT_PUBLIC_BASE_URL
+              value: "https://tickets.xpa.dev"
+          envFrom:
+            - configMapRef:
+                namespace: default
+                name: tickets
+          livenessProbe:
+            httpGet:
+              path: /api/healthz
+              port: 3000
+            failureThreshold: 1
+            periodSeconds: 10
+          startupProbe:
+            httpGet:
+              path: /api/healthz
+              port: 3000
+            failureThreshold: 180
+            periodSeconds: 10
+          resources:
+            limits:
+              memory: 2Gi
+              cpu: "2"
+            requests:
+              memory: 1Gi
+              cpu: "0.5"
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: tickets
+  namespace: tickets
+spec:
+  selector:
+    app: tickets
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+  type: LoadBalancer
