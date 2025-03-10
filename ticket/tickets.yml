@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: tickets
-          image: ghcr.io/xpadev-net/ticket-management:v0.0.7
+          image: ghcr.io/xpadev-net/ticket-management:v0.0.8
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
