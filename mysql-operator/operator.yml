@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://mysql.github.io/mysql-operator/
-    targetRevision: 9.2.0-2.2.3
+    targetRevision: 2.2.3
     chart: mysql-operator
   destination:
     server: https://kubernetes.default.svc
