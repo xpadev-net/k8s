@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://mysql.github.io/mysql-operator/charts/mysql-operator
+    repoURL: https://mysql.github.io/mysql-operator/
     targetRevision: 9.2.0-2.2.3
     chart: mysql-operator
   destination:
