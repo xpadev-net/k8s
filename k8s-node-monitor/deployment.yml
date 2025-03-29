@@ -43,7 +43,7 @@ spec:
         spec:
           containers:
             - name: k8s-node-monitor
-              image: ghcr.io/xpadev/k8s-node-monitor:v0.0.4
+              image: ghcr.io/xpadev-net/k8s-node-monitor:v0.0.4
               command:
                 [
                   "./k8s-node-monitor",
