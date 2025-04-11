@@ -10,19 +10,9 @@ spec:
     chart: tenant
     targetRevision: 7.0.1
     helm:
-      parameters:
-        - name: tenant.name
-          value: tenant
-        - name: tenant.pools[0].name
-          value: pool
-        - name: tenant.pools[0].servers
-          value: "2"
-        - name: tenant.pools[0].volumesPerServer
-          value: "1"
-        - name: tenant.pools[0].storageClassName
-          value: minio-storage
-        - name: tenant.pools[0].size
-          value: 32Gi
+      # use file from values.yaml
+      valueFiles:
+        - ./values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: minio-tenant
