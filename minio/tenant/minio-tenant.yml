@@ -16,9 +16,9 @@ spec:
         - name: tenant.pools[0].name
           value: pool
         - name: tenant.pools[0].servers
-          value: 2
+          value: "2"
         - name: tenant.pools[0].volumesPerServer
-          value: 1
+          value: "1"
         - name: tenant.pools[0].storageClassName
           value: minio-storage
         - name: tenant.pools[0].size
