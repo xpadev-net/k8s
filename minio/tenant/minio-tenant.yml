@@ -11,7 +11,7 @@ spec:
     targetRevision: 7.0.1
     helm:
       valueFiles:
-        - ./tenant/values.yml
+        - https://github.com/xpadev-net/k8s/blob/master/minio/tenant/values.yml
   destination:
     server: https://kubernetes.default.svc
     namespace: minio-tenant
