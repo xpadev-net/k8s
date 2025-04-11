@@ -12,7 +12,7 @@ spec:
     helm:
       # use file from values.yaml
       valueFiles:
-        - ./values.yaml
+        - tenant/values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: minio-tenant
