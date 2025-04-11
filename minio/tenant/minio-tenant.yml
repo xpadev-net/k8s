@@ -9,6 +9,16 @@ spec:
     repoURL: https://operator.min.io
     chart: tenant
     targetRevision: 7.0.1
+    helm:
+      parameters:
+        - name: servers
+          value: "2"
+        - name: volumesPerServer
+          value: "1"
+        - name: storageClassName
+          value: "nfs-client"
+        - name: size
+          value: "32Gi"
   destination:
     server: https://kubernetes.default.svc
     namespace: minio
