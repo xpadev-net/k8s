@@ -23,6 +23,8 @@ spec:
           value: minio-storage
         - name: tenant.pools[0].size
           value: 32Gi
+        - name: ingress.console.enabled
+          value: "true"
   destination:
     server: https://kubernetes.default.svc
     namespace: minio-tenant
