@@ -12,7 +12,7 @@ spec:
     helm:
       parameters:
         - name: tenant.name
-          value: "minio-tenant"
+          value: tenant
         - name: tenant.pools[0].name
           value: "pool"
         - name: tenant.pools[0].servers
