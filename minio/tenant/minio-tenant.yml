@@ -11,7 +11,7 @@ spec:
     targetRevision: 7.0.1
   destination:
     server: https://kubernetes.default.svc
-    namespace: minio
+    namespace: minio-tenant
   syncPolicy:
     syncOptions:
       - ServerSideApply=true
