@@ -10,9 +10,8 @@ spec:
     chart: tenant
     targetRevision: 7.0.1
     helm:
-      # use file from values.yaml
       valueFiles:
-        - tenant/values.yaml
+        - ./values.yml
   destination:
     server: https://kubernetes.default.svc
     namespace: minio-tenant
