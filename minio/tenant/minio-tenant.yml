@@ -11,6 +11,8 @@ spec:
     targetRevision: 7.0.1
     helm:
       parameters:
+        - name: tenant.name
+          value: "minio-tenant"
         - name: tenant.pools[0].name
           value: "pool"
         - name: tenant.pools[0].servers
