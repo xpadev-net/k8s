@@ -1,0 +1,9 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: minio-storage
+provisioner: k8s-sigs.io/nfs-subdir-external-provisioner # or choose another name, must match deployment's env PROVISIONER_NAME'
+parameters:
+  pathPattern: "${.PVC.namespace}-${.PVC.name}/${.PVC.annotations.nfs.io/storage-path}"
+  archiveOnDelete: "false"
+volumeBindingMode: WaitForFirstConsumer

@@ -20,7 +20,7 @@ spec:
         - name: tenant.pools[0].volumesPerServer
           value: "1"
         - name: tenant.pools[0].storageClassName
-          value: "nfs-client"
+          value: "minio-storage"
         - name: tenant.pools[0].size
           value: "32Gi"
   destination:
