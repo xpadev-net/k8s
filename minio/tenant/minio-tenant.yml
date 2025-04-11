@@ -11,13 +11,13 @@ spec:
     targetRevision: 7.0.1
     helm:
       parameters:
-        - name: servers
+        - name: tenant.pools[0].servers
           value: "2"
-        - name: volumesPerServer
+        - name: tenant.pools[0].volumesPerServer
           value: "1"
-        - name: storageClassName
+        - name: tenant.pools[0].storageClassName
           value: "nfs-client"
-        - name: size
+        - name: tenant.pools[0].size
           value: "32Gi"
   destination:
     server: https://kubernetes.default.svc
