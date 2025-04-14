@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://operator.min.io
-    chart: operator
-    targetRevision: 7.0.1
+    path: ./
+    repoURL: "https://github.com/minio/operator"
+    targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
     namespace: minio-operator
