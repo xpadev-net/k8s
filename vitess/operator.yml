@@ -494,7 +494,7 @@ spec:
                       name:
                         type: string
                       shard:
-                        example: '-'
+                        example: "-"
                         type: string
                     required:
                       - keyspace
@@ -2124,7 +2124,7 @@ spec:
                                 name:
                                   type: string
                                 shard:
-                                  example: '-'
+                                  example: "-"
                                   type: string
                               required:
                                 - keyspace
@@ -7584,6 +7584,7 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: vitess-operator
+  namespace: vitess
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
@@ -7604,12 +7605,13 @@ rules:
       - vitessbackupstorages/status
       - vitessbackupstorages/finalizers
     verbs:
-      - '*'
+      - "*"
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: vitess-operator
+  namespace: vitess
 rules:
   - apiGroups:
       - ""
@@ -7622,7 +7624,7 @@ rules:
       - configmaps
       - secrets
     verbs:
-      - '*'
+      - "*"
   - apiGroups:
       - ""
     resources:
@@ -7637,13 +7639,13 @@ rules:
       - replicasets
       - statefulsets
     verbs:
-      - '*'
+      - "*"
   - apiGroups:
       - policy
     resources:
       - poddisruptionbudgets
     verbs:
-      - '*'
+      - "*"
   - apiGroups:
       - apps
     resourceNames:
@@ -7680,19 +7682,19 @@ rules:
       - vitessbackupschedules/status
       - vitessbackupschedules/finalizers
     verbs:
-      - '*'
+      - "*"
   - apiGroups:
       - batch
     resources:
       - jobs
     verbs:
-      - '*'
+      - "*"
   - apiGroups:
       - autoscaling
     resources:
       - horizontalpodautoscalers
     verbs:
-      - '*'
+      - "*"
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
@@ -7712,6 +7714,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: vitess-operator
+  namespace: vitess
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
@@ -7727,6 +7730,7 @@ globalDefault: false
 kind: PriorityClass
 metadata:
   name: vitess
+  namespace: vitess
 value: 1000
 ---
 apiVersion: scheduling.k8s.io/v1
@@ -7735,12 +7739,14 @@ globalDefault: false
 kind: PriorityClass
 metadata:
   name: vitess-operator-control-plane
+  namespace: vitess
 value: 5000
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: vitess-operator
+  namespace: vitess
 spec:
   replicas: 1
   selector:
