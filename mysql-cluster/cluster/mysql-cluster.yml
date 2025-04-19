@@ -23,7 +23,7 @@ spec:
           value: "1"
   destination:
     server: https://kubernetes.default.svc
-    namespace: mysql-innodbcluster
+    namespace: mysql-cluster
   syncPolicy:
     syncOptions:
       - ServerSideApply=true
