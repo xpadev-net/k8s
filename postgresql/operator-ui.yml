@@ -1,17 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: mysql-operator
+  name: postgres-operator-ui
   namespace: argocd
 spec:
   project: default
   source:
-    repoURL: https://mysql.github.io/mysql-operator/
-    chart: mysql-operator
-    targetRevision: 2.2.3
+    repoURL: https://opensource.zalando.com/postgres-operator/charts/postgres-operator-ui
+    chart: postgres-operator-ui
+    targetRevision: 1.14.0
   destination:
     server: https://kubernetes.default.svc
-    namespace: mysql-operator
+    namespace: postgres-operator
   syncPolicy:
     syncOptions:
       - ServerSideApply=true
