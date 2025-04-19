@@ -1,9 +1,10 @@
 apiVersion: "acid.zalan.do/v1"
 kind: postgresql
 metadata:
-  name: acid-minimal-cluster
+  name: pg-cluster
+  namespace: postgres-cluster
 spec:
-  teamId: "acid"
+  teamId: "pg-cluster"
   volume:
     size: 10Gi
   numberOfInstances: 2
