@@ -1,16 +1,28 @@
+kind: "postgresql"
 apiVersion: "acid.zalan.do/v1"
-kind: postgresql
+
 metadata:
-  name: pg-cluster
-  namespace: postgres-cluster
+  name: "postgres"
+  namespace: "postgres-operator"
+  labels:
+    team: acid
+
 spec:
-  teamId: "pg-cluster"
-  volume:
-    size: 10Gi
-  numberOfInstances: 2
-  users:
-    root:
-      - superuser
-      - createdb
+  teamId: "acid"
   postgresql:
     version: "17"
+  numberOfInstances: 2
+  enableMasterLoadBalancer: true
+  enableConnectionPooler: true
+  enableMasterPoolerLoadBalancer: true
+  maintenanceWindows:
+  volume:
+    size: "10Gi"
+
+  resources:
+    requests:
+      cpu: 100m
+      memory: 100Mi
+    limits:
+      cpu: 500m
+      memory: 500Mi
