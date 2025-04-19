@@ -5,8 +5,8 @@
 apiVersion: planetscale.com/v2
 kind: VitessCluster
 metadata:
-  name: vitess
-  namespace: vitess
+  name: example
+  namespace: example
 spec:
   backup:
     engine: xtrabackup
@@ -31,7 +31,7 @@ spec:
         authentication:
           static:
             secret:
-              name: vitess-cluster-config
+              name: example-cluster-config
               key: users.json
         replicas: 1
         resources:
@@ -54,7 +54,7 @@ spec:
         memory: 128Mi
   vtadmin:
     rbac:
-      name: vitess-cluster-config
+      name: example-cluster-config
       key: rbac.yaml
     cells:
       - zone1
@@ -93,7 +93,7 @@ spec:
             parts: 1
             shardTemplate:
               databaseInitScriptSecret:
-                name: vitess-cluster-config
+                name: example-cluster-config
                 key: init_db.sql
               tabletPools:
                 - cell: zone1
@@ -126,8 +126,8 @@ spec:
 apiVersion: v1
 kind: Secret
 metadata:
-  name: vitess-cluster-config
-  namespace: vitess
+  name: example-cluster-config
+  namespace: example
 type: Opaque
 stringData:
   users.json: |
