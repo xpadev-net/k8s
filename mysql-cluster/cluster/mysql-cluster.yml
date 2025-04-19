@@ -21,6 +21,8 @@ spec:
           value: "3"
         - name: routerInstances
           value: "1"
+        - name: tls.useSelfSigned
+          value: "true"
   destination:
     server: https://kubernetes.default.svc
     namespace: mysql-cluster
