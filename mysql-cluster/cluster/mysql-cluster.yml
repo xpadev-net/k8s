@@ -1,11 +1,20 @@
-apiVersion: mysql.oracle.com/v2
-kind: InnoDBCluster
+apiVersion: argoproj.io/v1alpha1
+kind: Application
 metadata:
   name: mysql-cluster
-  namespace: mysql-cluster
+  namespace: argocd
 spec:
-  secretName: mysql-secret
-  tlsUseSelfSigned: true
-  instances: 3
-  router:
-    instances: 1
+  project: default
+  source:
+    repoURL: https://mysql.github.io/mysql-operator/
+    chart: mysql-innodbcluster
+    targetRevision: 2.2.3
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: mysql-innodbcluster
+  syncPolicy:
+    syncOptions:
+      - ServerSideApply=true
+    automated:
+      prune: false
+      selfHeal: false
