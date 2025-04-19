@@ -20,7 +20,7 @@ spec:
     maxFailoverCount: 0
     replicas: 3
     # if storageClassName is not set, the default Storage Class of the Kubernetes cluster will be used
-    storageClassName: nfs-client
+    # storageClassName: local-storage
     requests:
       storage: "10Gi"
     config: {}
@@ -33,7 +33,7 @@ spec:
     evictLeaderTimeout: 1m
     replicas: 3
     # if storageClassName is not set, the default Storage Class of the Kubernetes cluster will be used
-    storageClassName: nfs-client
+    # storageClassName: local-storage
     requests:
       storage: "10Gi"
     config:
