@@ -8,7 +8,7 @@ metadata:
   namespace: tidb-cluster
 spec:
   version: v8.5.0
-  timezone: UTC
+  timezone: JST
   pvReclaimPolicy: Retain
   enableDynamicConfiguration: true
   configUpdateStrategy: RollingUpdate
