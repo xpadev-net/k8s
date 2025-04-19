@@ -18,9 +18,9 @@ spec:
         - name: credentials.root.host
           value: "%"
         - name: serverInstances
-          value: 3
+          value: "3"
         - name: routerInstances
-          value: 1
+          value: "1"
   destination:
     server: https://kubernetes.default.svc
     namespace: mysql-innodbcluster
