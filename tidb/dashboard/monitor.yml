@@ -2,7 +2,7 @@ apiVersion: pingcap.com/v1alpha1
 kind: TidbMonitor
 metadata:
   name: basic
-  namespace: tidb-dashboard
+  namespace: tidb-cluster
 spec:
   replicas: 1
   clusters:

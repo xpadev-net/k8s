@@ -2,7 +2,7 @@ apiVersion: pingcap.com/v1alpha1
 kind: TidbDashboard
 metadata:
   name: basic
-  namespace: tidb-dashboard
+  namespace: tidb-cluster
 spec:
   baseImage: pingcap/tidb-dashboard
   version: latest
