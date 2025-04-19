@@ -18,7 +18,7 @@ spec:
   pd:
     baseImage: pingcap/pd
     maxFailoverCount: 0
-    replicas: 1
+    replicas: 3
     # if storageClassName is not set, the default Storage Class of the Kubernetes cluster will be used
     # storageClassName: local-storage
     requests:
@@ -31,7 +31,7 @@ spec:
     # cannot be transferred during upgrade, so we have
     # to configure a short timeout
     evictLeaderTimeout: 1m
-    replicas: 1
+    replicas: 3
     # if storageClassName is not set, the default Storage Class of the Kubernetes cluster will be used
     # storageClassName: local-storage
     requests:
@@ -49,7 +49,7 @@ spec:
   tidb:
     baseImage: pingcap/tidb
     maxFailoverCount: 0
-    replicas: 1
+    replicas: 3
     service:
       type: ClusterIP
     config: {}
