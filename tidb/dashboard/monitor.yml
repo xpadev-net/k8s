@@ -23,18 +23,3 @@ spec:
     baseImage: quay.io/prometheus-operator/prometheus-config-reloader
     version: v0.49.0
   imagePullPolicy: IfNotPresent
----
-apiVersion: pingcap.com/v1alpha1
-kind: TidbNGMonitoring
-metadata:
-  name: tidb-ng-monitoring
-spec:
-  clusters:
-    - name: basic
-      namespace: tidb-cluster
-  ngMonitoring:
-    requests:
-      storage: 10Gi
-    version: v8.5.0
-    # storageClassName: default
-    baseImage: pingcap/ng-monitoring
