@@ -63,7 +63,7 @@ data:
         log
         health :8080
         ready
-        fallthrough
+        fallthrough .
     }
     cluster.local {
         kubernetes cluster.local in-addr.arpa ip6.arpa {
@@ -129,7 +129,7 @@ spec:
               topologyKey: kubernetes.io/hostname
       containers:
         - name: coredns
-          image: coredns/coredns:1.9.4
+          image: coredns/coredns:1.21.1
           imagePullPolicy: IfNotPresent
           resources:
             limits:
