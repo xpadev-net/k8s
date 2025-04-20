@@ -62,6 +62,7 @@ data:
         cache
         errors
         log
+        health :8080
     }
     . {
         any
@@ -156,7 +157,7 @@ spec:
           readinessProbe:
             httpGet:
               path: /ready
-              port: 8181
+              port: 8080
               scheme: HTTP
       dnsPolicy: Default
       volumes:
