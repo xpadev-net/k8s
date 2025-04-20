@@ -80,6 +80,7 @@ data:
         cache 30
         loop
         reload
+        debug
         loadbalance
     }
 ---
