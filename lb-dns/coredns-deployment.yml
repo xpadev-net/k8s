@@ -184,7 +184,7 @@ spec:
   selector:
     k8s-app: lb-dns
     app.kubernetes.io/name: coredns
-  clusterIP: CLUSTER_DNS_IP
+  type: LoadBalancer
   ports:
     - name: dns
       port: 53
