@@ -63,10 +63,12 @@ data:
         errors
         log
         health :8080
+        ready
     }
     . {
         any
         forward . 1.1.1.1
+        ready
     }
 ---
 apiVersion: apps/v1
@@ -157,7 +159,7 @@ spec:
           readinessProbe:
             httpGet:
               path: /ready
-              port: 8080
+              port: 8181
               scheme: HTTP
       dnsPolicy: Default
       volumes:
