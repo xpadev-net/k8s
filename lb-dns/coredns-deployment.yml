@@ -56,23 +56,26 @@ data:
     kubernetes.xpadev.net {
         etcd {
             path /skydns
-            endpoint http://etcd.lb-dns.svc.cluster.local:2379
+            endpoint http://etcd.lb-dns:2379
             fallthrough
         }
         cache
-        errors
         log
         health :8080
         ready
+        fallthrough
     }
     cluster.local {
-        forward . /etc/resolv.conf
+        kubernetes cluster.local in-addr.arpa ip6.arpa {
+            pods insecure
+            fallthrough in-addr.arpa ip6.arpa
+            ttl 30
+        }
         cache
-        errors
         log
-        health :8080
+        health
         ready
-    }   
+    }
     . {
         any
         forward . /etc/resolv.conf
