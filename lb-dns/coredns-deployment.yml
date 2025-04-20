@@ -63,6 +63,7 @@ data:
         log
         health :8080
         ready
+        fallthrough
     }
     cluster.local {
         kubernetes cluster.local in-addr.arpa ip6.arpa {
@@ -78,6 +79,8 @@ data:
     . {
         any
         forward . /etc/resolv.conf
+        cache
+        log
         ready
     }
 ---
