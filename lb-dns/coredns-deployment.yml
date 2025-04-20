@@ -56,7 +56,7 @@ data:
     kubernetes.xpadev.net {
         etcd {
             path /skydns
-            endpoint http://etcd.lb-dns:2379
+            endpoint http://etcd.lb-dns.svc.cluster.local:2379
             fallthrough
         }
         cache
