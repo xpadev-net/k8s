@@ -65,9 +65,17 @@ data:
         health :8080
         ready
     }
+    cluster.local {
+        forward . /etc/resolv.conf
+        cache
+        errors
+        log
+        health :8080
+        ready
+    }   
     . {
         any
-        forward . /etc/resolv.conf
+        forward . 1.1.1.1
         ready
     }
 ---
