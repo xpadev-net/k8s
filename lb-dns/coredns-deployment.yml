@@ -75,7 +75,7 @@ data:
     }   
     . {
         any
-        forward . 1.1.1.1
+        forward . /etc/resolv.conf
         ready
     }
 ---
