@@ -64,23 +64,20 @@ data:
         health :8080
         ready
     }
-    cluster.local {
-        kubernetes cluster.local in-addr.arpa ip6.arpa {
-            pods insecure
-            fallthrough in-addr.arpa ip6.arpa
-            ttl 30
-        }
-        cache
-        log
+    . {
+        errors
         health
         ready
-    }
-    . {
-        any
+        kubernetes cluster.local in-addr.arpa ip6.arpa {
+           pods insecure
+           fallthrough in-addr.arpa ip6.arpa
+           ttl 30
+        }
         forward . /etc/resolv.conf
-        cache
-        log
-        ready
+        cache 30
+        loop
+        reload
+        loadbalance
     }
 ---
 apiVersion: apps/v1
