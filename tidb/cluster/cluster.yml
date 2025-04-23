@@ -13,6 +13,7 @@ spec:
   enableDynamicConfiguration: true
   configUpdateStrategy: RollingUpdate
   discovery: {}
+  startScriptVersion: v2
   helper:
     image: alpine:3.16.0
   pd:
@@ -52,4 +53,5 @@ spec:
     replicas: 3
     service:
       type: LoadBalancer
+      loadBalancerIP: 10.154.0.2
     config: {}
