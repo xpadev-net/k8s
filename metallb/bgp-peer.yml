@@ -1,0 +1,19 @@
+apiVersion: metallb.io/v1beta2
+kind: BGPPeer
+metadata:
+  name: ix2215-tky-peer
+  namespace: metallb-system
+spec:
+  myASN: 65000
+  peerASN: 65000
+  peerAddress: 10.0.0.254
+---
+apiVersion: metallb.io/v1beta2
+kind: BGPPeer
+metadata:
+  name: ix2215-osk-peer
+  namespace: metallb-system
+spec:
+  myASN: 65000
+  peerASN: 65000
+  peerAddress: 192.168.0.1
