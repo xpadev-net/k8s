@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: rook-operator
+  name: rook-cluster
   namespace: argocd
 spec:
   project: default
