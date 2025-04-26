@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://charts.rook.io/release
     chart: rook-ceph
-    targetRevision: 3.0.0
+    targetRevision: v1.17.1
     helm:
   destination:
     server: https://kubernetes.default.svc
