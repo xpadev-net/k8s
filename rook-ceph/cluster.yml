@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://charts.rook.io/release
-    chart: rook-ceph
+    chart: rook-ceph-cluster
     targetRevision: v1.17.1
     helm:
       parameters:
