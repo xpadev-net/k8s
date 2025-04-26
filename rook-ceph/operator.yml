@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: rook-operator
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://charts.rook.io/release
+    chart: rook-ceph
+    targetRevision: 3.0.0
+    helm:
+      parameters:
+        - name: cluster.dashboards.tls.enable
+          value: "false"
+        - name: cluster.dashboards.tls.generate
+          value: "true"
+        - name: cluster.dashboards.tls.secret.name
+          value: "opensearch-dashboards-tls"
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: rook-ceph
+  syncPolicy:
+    syncOptions:
+      - ServerSideApply=true
