@@ -10,17 +10,11 @@ spec:
     chart: rook-ceph-cluster
     targetRevision: v1.17.1
     helm:
-      parameters:
-        - name: storage.useAllNodes
-          value: "false"
-        - name: storage.useAllDevices
-          value: "false"
-        - name: cephBlockPools[0].name
-          value: "ceph-blockpool"
-        - name: cephBlockPools[0].storageClass.isDefault
-          value: "false"
-        - name: storage.nodes
-          value: |
+      valuesObject:
+        storage:
+          useAllNodes: false
+          useAllDevices: false
+          nodes:
             - name: "k8s-tky-1"
               devices:
                 - name: "sdb1"
@@ -36,6 +30,10 @@ spec:
             - name: "k8s-osk-4"
               devices:
                 - name: "sdb1"
+        cephBlockPools:
+          - name: "ceph-blockpool"
+            storageClass:
+              isDefault: false
   destination:
     server: https://kubernetes.default.svc
     namespace: rook-ceph
