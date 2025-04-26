@@ -1,0 +1,40 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: rook-operator
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://charts.rook.io/release
+    chart: rook-ceph
+    targetRevision: v1.17.1
+    helm:
+      parameters:
+        - name: storage.useAllNodes
+          value: "false"
+        - name: storage.useAllDevices
+          value: "false"
+        - name: storage.nodes
+          value: |
+            - name: "k8s-tky-1"
+              devices:
+                - name: "sdb1"
+            - name: "k8s-tky-2"
+              devices:
+                - name: "sdb1"
+            - name: "k8s-osk-2"
+              devices:
+                - name: "sdb1"
+            - name: "k8s-osk-3"
+              devices:
+                - name: "sdb1"
+            - name: "k8s-osk-4"
+              devices:
+                - name: "sdb1"
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: rook-ceph
+  syncPolicy:
+    syncOptions:
+      - ServerSideApply=true
