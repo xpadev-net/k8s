@@ -15,6 +15,8 @@ spec:
           value: "false"
         - name: storage.useAllDevices
           value: "false"
+        - name: cephBlockPools[0].storageClass.isDefault
+          value: "false"
         - name: storage.nodes
           value: |
             - name: "k8s-tky-1"
