@@ -10,13 +10,6 @@ spec:
     chart: rook-ceph
     targetRevision: 3.0.0
     helm:
-      parameters:
-        - name: cluster.dashboards.tls.enable
-          value: "false"
-        - name: cluster.dashboards.tls.generate
-          value: "true"
-        - name: cluster.dashboards.tls.secret.name
-          value: "opensearch-dashboards-tls"
   destination:
     server: https://kubernetes.default.svc
     namespace: rook-ceph
