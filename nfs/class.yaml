@@ -8,5 +8,5 @@ provisioner: k8s-sigs.io/nfs-subdir-external-provisioner # or choose another nam
 allowVolumeExpansion: true
 reclaimPolicy: Retain
 parameters:
-  pathPattern: "${.PVC.namespace}-${.PVC.name}/${.PVC.annotations.nfs.io/storage-path}"
+  pathPattern: "${.PVC.namespace}-${.PVC.name}-${.PV.name}/${.PVC.annotations.nfs.io/storage-path}"
   archiveOnDelete: "false"
