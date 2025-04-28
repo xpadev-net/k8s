@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: adminer
+  namespace: default
+spec:
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: adminer
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: adminer
+    spec:
+      containers:
+        - name: adminer
+          image: adminer:5
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          env:
+            - name: ADMINER_DEFAULT_SERVER
+              value: "basic-tidb.tidb-cluster.svc.cluster.local:4000"
+          resources:
+            limits:
+              memory: 250Mi
+              cpu: 100m
+            requests:
+              memory: 250Mi
+              cpu: 100m
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: adminer
+spec:
+  ports:
+    - port: 8080
+  selector:
+    app: adminer
+  clusterIP: None
