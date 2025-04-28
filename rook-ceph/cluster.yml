@@ -261,7 +261,7 @@ spec:
     mgr: system-cluster-critical
     #crashcollector: rook-ceph-crashcollector-priority-class
   storage: # cluster level storage configuration and selection
-    useAllNodes: false
+    useAllNodes: true
     useAllDevices: false
     nodes:
       - name: "k8s-tky-1"
