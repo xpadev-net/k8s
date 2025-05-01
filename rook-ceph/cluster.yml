@@ -266,19 +266,19 @@ spec:
     nodes:
       - name: "k8s-tky-1"
         devices:
-          - name: "sdb1"
+          - name: "sdb"
       - name: "k8s-tky-2"
         devices:
-          - name: "sdb1"
+          - name: "sdb"
       - name: "k8s-osk-2"
         devices:
-          - name: "sdb1"
+          - name: "sdb"
       - name: "k8s-osk-3"
         devices:
-          - name: "sdb1"
+          - name: "sdb"
       - name: "k8s-osk-4"
         devices:
-          - name: "sdb1"
+          - name: "sdb"
     #deviceFilter:
     config:
       # crushRoot: "custom-root" # specify a non-default root label for the CRUSH map
