@@ -53,5 +53,5 @@ spec:
     replicas: 3
     service:
       type: LoadBalancer
-      loadBalancerIP: 10.154.0.2
+      loadBalancerIP: 10.154.11.3
     config: {}
