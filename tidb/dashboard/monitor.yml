@@ -6,7 +6,7 @@ metadata:
 spec:
   replicas: 1
   clusters:
-    - name: ceph-cluster
+    - name: basic
   prometheus:
     baseImage: prom/prometheus
     version: v2.27.1
