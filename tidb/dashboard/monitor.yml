@@ -1,12 +1,12 @@
 apiVersion: pingcap.com/v1alpha1
 kind: TidbMonitor
 metadata:
-  name: basic
+  name: ceph-cluster
   namespace: tidb-cluster
 spec:
   replicas: 1
   clusters:
-    - name: basic
+    - name: ceph-cluster
   prometheus:
     baseImage: prom/prometheus
     version: v2.27.1
