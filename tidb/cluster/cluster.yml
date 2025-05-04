@@ -48,10 +48,10 @@ spec:
     # storageClassName: local-storage
     requests:
       storage: "10Gi"
-      cpu: 100m
+      cpu: 1
       memory: 2Gi
     limits:
-      cpu: 100m
+      cpu: 1
       memory: 4Gi
     config:
       storage:
