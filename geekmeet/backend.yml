@@ -39,7 +39,7 @@ spec:
           resources:
             limits:
               memory: 256Mi
-              cpu: 500m
+              cpu: 100m
             requests:
               memory: 128Mi
               cpu: 100m
@@ -56,5 +56,4 @@ spec:
     - protocol: TCP
       port: 3000
       targetPort: 3000
-  type: LoadBalancer
-  loadBalancerIP: 192.168.11.5
+  type: ClusterIP

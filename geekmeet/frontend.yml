@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: geekmeet-frontend
-          image: ghcr.io/xpadev-net/geekmeet_frontend:v0.0.10
+          image: ghcr.io/xpadev-net/geekmeet_frontend:v0.0.11
           ports:
             - containerPort: 3000
           env:
@@ -36,11 +36,11 @@ spec:
             periodSeconds: 10
           resources:
             limits:
-              memory: 1Gi
-              cpu: 1000m
+              memory: 256Mi
+              cpu: 100m
             requests:
-              memory: 512Mi
-              cpu: 500m
+              memory: 128Mi
+              cpu: 50m
 ---
 kind: Service
 apiVersion: v1
