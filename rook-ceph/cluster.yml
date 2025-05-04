@@ -259,13 +259,6 @@ spec:
       requests:
         cpu: 100m
         memory: 256Mi
-    osd:
-      limits:
-        cpu: 200m
-        memory: 1Gi
-      requests:
-        cpu: 100m
-        memory: 512Mi
   # The above example requests/limits can also be added to the other components
   #   mon:
   #   osd:
