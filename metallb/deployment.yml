@@ -1740,6 +1740,13 @@ spec:
               value: memberlist
             - name: METALLB_DEPLOYMENT
               value: controller
+          resources:
+            limits:
+              cpu: 100m
+              memory: 128Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
           image: quay.io/metallb/controller:v0.14.9
           livenessProbe:
             failureThreshold: 3
