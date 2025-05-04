@@ -31,6 +31,13 @@ spec:
               value: 192.168.100.201
             - name: NFS_PATH
               value: /datanvme/k8s
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 100m
+              memory: 256Mi
       volumes:
         - name: nfs-client-root
           nfs:
