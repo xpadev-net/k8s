@@ -307,6 +307,9 @@ spec:
       - name: "k8s-osk-4"
         devices:
           - name: "sdb"
+      - name: "k8s-osk-5"
+        devices:
+          - name: "sdb"
     #deviceFilter:
     config:
       # crushRoot: "custom-root" # specify a non-default root label for the CRUSH map
