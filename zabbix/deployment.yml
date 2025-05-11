@@ -1226,7 +1226,7 @@ spec:
             - name: ZBX_BUFFERSIZE
               value: "100"
             - name: ZBX_MAXLINESPERSECOND
-              value: ""
+              value: "20"
             - name: ZBX_UNSAFEUSERPARAMETERS
               value: "0"
             - name: ZBX_LOADMODULE
