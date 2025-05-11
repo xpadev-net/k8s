@@ -368,7 +368,7 @@ spec:
             initialDelaySeconds: 5
             periodSeconds: 5
             timeoutSeconds: 3
-            failureThreshold: 30
+            failureThreshold: 120
           env:
             - name: MYSQL_USER
               valueFrom:
@@ -402,8 +402,8 @@ spec:
               cpu: 1000m
               memory: 1Gi
             requests:
-              cpu: 500m
-              memory: 512Mi
+              cpu: 1000m
+              memory: 1Gi
 ---
 apiVersion: apps/v1
 kind: Deployment
