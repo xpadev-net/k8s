@@ -1236,7 +1236,7 @@ spec:
             - name: ZBX_HOSTINTERFACEITEM
               value: ""
             - name: ZBX_REFRESHACTIVECHECKS
-              value: ""
+              value: "60"
             - name: DEBUG_MODE
               value: "3"
             - name: ZBX_TLSCONNECT
