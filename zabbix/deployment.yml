@@ -1240,7 +1240,7 @@ spec:
             - name: DEBUG_MODE
               value: "3"
             - name: ZBX_TLSCONNECT
-              value: ""
+              value: "none"
             - name: ZBX_TLSACCEPT
               value: ""
             - name: ZBX_TLSCAFILE
