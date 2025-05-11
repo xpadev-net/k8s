@@ -1222,7 +1222,7 @@ spec:
             - name: ZBX_TIMEOUT
               value: ""
             - name: ZBX_BUFFERSEND
-              value: ""
+              value: "5"
             - name: ZBX_BUFFERSIZE
               value: ""
             - name: ZBX_MAXLINESPERSECOND
