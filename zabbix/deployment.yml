@@ -313,6 +313,7 @@ metadata:
     tier: mysql-server
   namespace: zabbix
 spec:
+  revisionHistoryLimit: 2
   strategy:
     type: Recreate
   selector:
@@ -415,6 +416,7 @@ metadata:
     environment: dev
   namespace: zabbix
 spec:
+  revisionHistoryLimit: 2
   strategy:
     type: Recreate
     rollingUpdate: null
@@ -657,6 +659,7 @@ metadata:
     tier: proxy
   namespace: zabbix
 spec:
+  revisionHistoryLimit: 2
   strategy:
     type: Recreate
     rollingUpdate: null
@@ -795,6 +798,7 @@ metadata:
     tier: proxy
   namespace: zabbix
 spec:
+  revisionHistoryLimit: 2
   strategy:
     type: Recreate
     rollingUpdate: null
@@ -966,6 +970,7 @@ metadata:
     tier: java
   namespace: zabbix
 spec:
+  revisionHistoryLimit: 2
   selector:
     matchLabels:
       name: zabbix-java-gateway
@@ -1021,6 +1026,7 @@ metadata:
     tier: web-service
   namespace: zabbix
 spec:
+  revisionHistoryLimit: 2
   selector:
     matchLabels:
       name: zabbix-web-service
@@ -1084,6 +1090,7 @@ metadata:
     tier: agent
   namespace: zabbix
 spec:
+  revisionHistoryLimit: 2
   selector:
     matchLabels:
       name: zabbix-agent
