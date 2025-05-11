@@ -1220,7 +1220,7 @@ spec:
             - name: ZBX_METADATAITEM
               value: ""
             - name: ZBX_TIMEOUT
-              value: ""
+              value: "30"
             - name: ZBX_BUFFERSEND
               value: "5"
             - name: ZBX_BUFFERSIZE
