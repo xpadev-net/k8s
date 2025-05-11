@@ -399,11 +399,11 @@ spec:
             privileged: false
           resources:
             limits:
-              cpu: 200m
-              memory: 512Mi
+              cpu: 1000m
+              memory: 1Gi
             requests:
-              cpu: 100m
-              memory: 256Mi
+              cpu: 500m
+              memory: 512Mi
 ---
 apiVersion: apps/v1
 kind: Deployment
