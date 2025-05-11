@@ -770,10 +770,6 @@ spec:
             - name: ZBX_LOGSLOWQUERIES
             - name: ZBX_LOADMODULE
               value: ""
-            - name: ZBX_TLSCONNECT
-              value: "none"
-            - name: ZBX_TLSACCEPT
-              value: "none"
             - name: DEBUG_MODE
               value: "false"
           volumeMounts:
@@ -944,10 +940,6 @@ spec:
               value: ""
             - name: ZBX_LOADMODULE
               value: ""
-            - name: ZBX_TLSCONNECT
-              value: "none"
-            - name: ZBX_TLSACCEPT
-              value: "none"
             - name: DEBUG_MODE
               value: "false"
           volumeMounts:
@@ -1183,10 +1175,6 @@ spec:
               value: "60"
             - name: DEBUG_MODE
               value: "3"
-            - name: ZBX_TLSCONNECT
-              value: "none"
-            - name: ZBX_TLSACCEPT
-              value: "none"
           securityContext:
             capabilities: {}
             privileged: true
