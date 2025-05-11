@@ -773,7 +773,7 @@ spec:
             - name: ZBX_TLSCONNECT
               value: ""
             - name: ZBX_TLSACCEPT
-              value: ""
+              value: "none"
             - name: ZBX_TLSCAFILE
               value: ""
             - name: ZBX_TLSCRLFILE
@@ -975,7 +975,7 @@ spec:
             - name: ZBX_TLSCONNECT
               value: ""
             - name: ZBX_TLSACCEPT
-              value: ""
+              value: "none"
             - name: ZBX_TLSCAFILE
               value: ""
             - name: ZBX_TLSCRLFILE
@@ -1126,7 +1126,7 @@ spec:
             - name: ZBX_TIMEOUT
               value: "3"
             - name: ZBX_TLSACCEPT
-              value: ""
+              value: "none"
             - name: ZBX_TLSCAFILE
               value: ""
             - name: ZBX_TLSCERTFILE
@@ -1242,7 +1242,7 @@ spec:
             - name: ZBX_TLSCONNECT
               value: "none"
             - name: ZBX_TLSACCEPT
-              value: ""
+              value: "none"
             - name: ZBX_TLSCAFILE
               value: ""
             - name: ZBX_TLSCRLFILE
