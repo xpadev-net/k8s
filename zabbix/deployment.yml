@@ -1208,7 +1208,7 @@ spec:
             - name: ZBX_ACTIVESERVERS
               value: ""
             - name: ZBX_STARTAGENTS
-              value: ""
+              value: "1"
             - name: ZBX_HOSTNAME
               valueFrom:
                 fieldRef:
