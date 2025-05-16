@@ -19,7 +19,7 @@ spec:
           image: adminer:5-fastcgi
           imagePullPolicy: Always
           ports:
-            - containerPort: 8080
+            - containerPort: 9000
           env:
             - name: ADMINER_DEFAULT_SERVER
               value: "basic-tidb.tidb-cluster.svc.cluster.local:4000"
@@ -38,7 +38,7 @@ metadata:
   namespace: default
 spec:
   ports:
-    - port: 8080
+    - port: 9000
   selector:
     app: adminer
   clusterIP: None
