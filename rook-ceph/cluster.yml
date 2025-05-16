@@ -298,16 +298,13 @@ spec:
       - name: "k8s-tky-2"
         devices:
           - name: "sdb"
+      - name: "k8s-tky-3"
+        devices:
+          - name: "sdb"
       - name: "k8s-tky-4"
         devices:
           - name: "sdb"
       - name: "k8s-tky-5"
-        devices:
-          - name: "sdb"
-      - name: "k8s-osk-2"
-        devices:
-          - name: "sdb"
-      - name: "k8s-osk-5"
         devices:
           - name: "sdb"
     #deviceFilter:
