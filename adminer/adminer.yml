@@ -25,10 +25,10 @@ spec:
               value: "basic-tidb.tidb-cluster.svc.cluster.local:4000"
           resources:
             limits:
-              memory: 250Mi
-              cpu: 100m
+              memory: 256Mi
+              cpu: 500m
             requests:
-              memory: 250Mi
+              memory: 128Mi
               cpu: 100m
 ---
 apiVersion: v1
