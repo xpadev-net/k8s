@@ -180,7 +180,7 @@ spec:
         requiredDuringSchedulingIgnoredDuringExecution:
           nodeSelectorTerms:
             - matchExpressions:
-                - key: topology.kubernetes.io/region
+                - key: topology.kubernetes.io/zone
                   operator: In
                   values:
                     - tokyo1a
