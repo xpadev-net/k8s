@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: adminer
-          image: adminer:5
+          image: adminer:5-fastcgi
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
