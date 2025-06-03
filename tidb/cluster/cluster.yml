@@ -31,10 +31,10 @@ spec:
     requests:
       storage: "10Gi"
       cpu: 50m
-      memory: 256Mi
+      memory: 1Gi
     limits:
       cpu: 100m
-      memory: 512Mi
+      memory: 2Gi
     config: {}
   tikv:
     baseImage: pingcap/tikv
@@ -69,10 +69,10 @@ spec:
     replicas: 3
     requests:
       cpu: 100m
-      memory: 512Mi
+      memory: 4Gi
     limits:
       cpu: 100m
-      memory: 1Gi
+      memory: 8Gi
     service:
       type: LoadBalancer
       loadBalancerIP: 10.154.0.2
