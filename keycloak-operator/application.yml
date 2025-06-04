@@ -14,3 +14,8 @@ spec:
     targetRevision: 26.2.5
   syncPolicy:
     automated: {}
+---
+kind: namespace
+apiVersion: v1
+metadata:
+  name: keycloak
