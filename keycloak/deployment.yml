@@ -19,6 +19,6 @@ spec:
   http:
     tlsSecret: keycloak-tls-secret
   hostname:
-    hostname: keycloak-k8s-pve.xpa.dev
+    hostname: keycloak.xpa.dev
   proxy:
     headers: xforwarded
