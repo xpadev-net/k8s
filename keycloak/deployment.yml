@@ -20,3 +20,8 @@ spec:
     hostname: keycloak-k8s-pve.xpa.dev
   proxy:
     headers: xforwarded
+---
+kind: namespace
+apiVersion: v1
+metadata:
+  name: keycloak
