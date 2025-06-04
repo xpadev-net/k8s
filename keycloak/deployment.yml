@@ -21,7 +21,7 @@ spec:
   proxy:
     headers: xforwarded
 ---
-kind: namespace
 apiVersion: v1
+kind: Namespace
 metadata:
   name: keycloak
