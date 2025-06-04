@@ -7,7 +7,9 @@ spec:
   instances: 1
   db:
     vendor: mysql
-    host: basic-tidb.tidb-cluster.svc.cluster.local:4000
+    host: basic-tidb.tidb-cluster.svc.cluster.local
+    database: keycloak
+    port: 4000
     usernameSecret:
       name: keycloak-db-secret
       key: username
