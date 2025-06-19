@@ -5,7 +5,7 @@ metadata:
   labels:
     app: prometheus
 spec:
-  image: quay.io/prometheus/prometheus:v2.22.1
+  image: quay.io/prometheus/prometheus:v3.4.1
   nodeSelector:
     kubernetes.io/os: linux
   replicas: 2
