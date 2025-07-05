@@ -26,6 +26,15 @@ spec:
     baseImage: pingcap/pd
     maxFailoverCount: 0
     replicas: 3
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+            - matchExpressions:
+                - key: topology.kubernetes.io/zone
+                  operator: In
+                  values:
+                    - tokyo1a
     # if storageClassName is not set, the default Storage Class of the Kubernetes cluster will be used
     # storageClassName: local-storage
     requests:
@@ -44,6 +53,15 @@ spec:
     # to configure a short timeout
     evictLeaderTimeout: 1m
     replicas: 3
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+            - matchExpressions:
+                - key: topology.kubernetes.io/zone
+                  operator: In
+                  values:
+                    - tokyo1a
     # if storageClassName is not set, the default Storage Class of the Kubernetes cluster will be used
     # storageClassName: local-storage
     requests:
@@ -67,6 +85,15 @@ spec:
     baseImage: pingcap/tidb
     maxFailoverCount: 0
     replicas: 3
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+            - matchExpressions:
+                - key: topology.kubernetes.io/zone
+                  operator: In
+                  values:
+                    - tokyo1a
     requests:
       cpu: 100m
       memory: 4Gi
