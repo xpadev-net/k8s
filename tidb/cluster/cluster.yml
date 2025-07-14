@@ -19,6 +19,15 @@ spec:
     requests:
       cpu: 100m
       memory: 128Mi
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+            - matchExpressions:
+                - key: topology.kubernetes.io/zone
+                  operator: In
+                  values:
+                    - tokyo1a
   startScriptVersion: v2
   helper:
     image: alpine:3.22.0
