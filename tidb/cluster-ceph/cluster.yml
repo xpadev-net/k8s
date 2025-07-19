@@ -155,5 +155,5 @@ spec:
       memory: 8Gi
     service:
       type: LoadBalancer
-      loadBalancerIP: 10.154.0.3
+      loadBalancerIP: 10.154.11.3
     config: {}
