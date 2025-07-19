@@ -2,7 +2,7 @@ apiVersion: pingcap.com/v1alpha1
 kind: TidbDashboard
 metadata:
   name: ceph
-  namespace: tidb-cluster
+  namespace: tidb-cluster-ceph
 spec:
   baseImage: pingcap/tidb-dashboard
   version: latest
