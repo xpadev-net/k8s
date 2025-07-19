@@ -37,7 +37,7 @@ spec:
                   - key: app.kubernetes.io/component
                     operator: In
                     values:
-                      - discovery
+                      - ceph-discovery
               topologyKey: kubernetes.io/hostname
   startScriptVersion: v2
   helper:
@@ -64,7 +64,7 @@ spec:
                   - key: app.kubernetes.io/component
                     operator: In
                     values:
-                      - pd
+                      - ceph-pd
               topologyKey: kubernetes.io/hostname
     # if storageClassName is not set, the default Storage Class of the Kubernetes cluster will be used
     storageClassName: rook-ceph-block
@@ -102,7 +102,7 @@ spec:
                   - key: app.kubernetes.io/component
                     operator: In
                     values:
-                      - tikv
+                      - ceph-tikv
               topologyKey: kubernetes.io/hostname
     # if storageClassName is not set, the default Storage Class of the Kubernetes cluster will be used
     storageClassName: rook-ceph-block
@@ -145,7 +145,7 @@ spec:
                   - key: app.kubernetes.io/component
                     operator: In
                     values:
-                      - tidb
+                      - ceph-tidb
               topologyKey: kubernetes.io/hostname
     requests:
       cpu: 100m
