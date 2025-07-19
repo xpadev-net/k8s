@@ -28,6 +28,17 @@ spec:
                   operator: In
                   values:
                     - tokyo1a
+    podAntiAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+        - weight: 100
+          podAffinityTerm:
+            labelSelector:
+              matchExpressions:
+                - key: app.kubernetes.io/component
+                  operator: In
+                  values:
+                    - discovery
+            topologyKey: kubernetes.io/hostname
   startScriptVersion: v2
   helper:
     image: alpine:3.22.0
@@ -44,6 +55,17 @@ spec:
                   operator: In
                   values:
                     - tokyo1a
+    podAntiAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+        - weight: 100
+          podAffinityTerm:
+            labelSelector:
+              matchExpressions:
+                - key: app.kubernetes.io/component
+                  operator: In
+                  values:
+                    - pd
+            topologyKey: kubernetes.io/hostname
     # if storageClassName is not set, the default Storage Class of the Kubernetes cluster will be used
     # storageClassName: local-storage
     requests:
@@ -71,6 +93,17 @@ spec:
                   operator: In
                   values:
                     - tokyo1a
+    podAntiAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+        - weight: 100
+          podAffinityTerm:
+            labelSelector:
+              matchExpressions:
+                - key: app.kubernetes.io/component
+                  operator: In
+                  values:
+                    - tikv
+            topologyKey: kubernetes.io/hostname
     # if storageClassName is not set, the default Storage Class of the Kubernetes cluster will be used
     # storageClassName: local-storage
     requests:
@@ -103,6 +136,17 @@ spec:
                   operator: In
                   values:
                     - tokyo1a
+    podAntiAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+        - weight: 100
+          podAffinityTerm:
+            labelSelector:
+              matchExpressions:
+                - key: app.kubernetes.io/component
+                  operator: In
+                  values:
+                    - tidb
+            topologyKey: kubernetes.io/hostname
     requests:
       cpu: 100m
       memory: 4Gi
