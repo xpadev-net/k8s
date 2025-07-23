@@ -229,7 +229,15 @@ spec:
             - name: DB_SERVER_PORT
               value: "4000"
             - name: MYSQL_USER
-              value: "root"
+              valueFrom:
+                configMapKeyRef:
+                  name: zabbix-config
+                  key: DATABASE_USER
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  name: zabbix-config
+                  key: DATABASE_PASSWORD
             - name: MYSQL_DATABASE
               value: "zabbix"
             - name: ZBX_DB_ENCRYPTION
@@ -311,10 +319,17 @@ spec:
             - name: DB_SERVER_PORT
               value: "4000"
             - name: MYSQL_USER
-              value: "root"
+              valueFrom:
+                configMapKeyRef:
+                  name: zabbix-config
+                  key: DATABASE_USER
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  name: zabbix-config
+                  key: DATABASE_PASSWORD
             - name: MYSQL_DATABASE
               value: "mysql-server"
-
             - name: ZBX_DBTLSCONNECT
               value: "required"
             - name: ZBX_HISTORYSTORAGEDATEINDEX
@@ -492,7 +507,15 @@ spec:
             - name: DB_SERVER_PORT
               value: "4000"
             - name: MYSQL_USER
-              value: "root"
+              valueFrom:
+                configMapKeyRef:
+                  name: zabbix-config
+                  key: DATABASE_USER
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  name: zabbix-config
+                  key: DATABASE_PASSWORD
             - name: MYSQL_DATABASE
               value: "zabbix_proxy"
             - name: ZBX_DBTLSCONNECT
