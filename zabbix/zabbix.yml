@@ -480,6 +480,8 @@ spec:
             initialDelaySeconds: 15
             periodSeconds: 20
           env:
+            - name: DB_SERVER_HOST
+              value: "basic-tidb.tidb-cluster-ceph.svc.cluster.local:4000"
             - name: MYSQL_USER
               value: "root"
             - name: MYSQL_DATABASE
