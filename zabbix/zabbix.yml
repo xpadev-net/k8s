@@ -471,14 +471,6 @@ spec:
               value: "/tmp/secrets/client-cert.pem"
             - name: ZBX_DBTLSKEYFILE
               value: "/tmp/secrets/client-key.pem"
-            - name: ZBX_DBTLSCIPHER
-              value: ""
-            - name: ZBX_DBTLSCIPHER13
-              value: ""
-            - name: ZBX_HISTORYSTORAGEURL
-              value: ""
-            - name: ZBX_HISTORYSTORAGETYPES
-              value: ""
             - name: ZBX_HISTORYSTORAGEDATEINDEX
               value: "1"
             - name: ZBX_STARTREPORTWRITERS
@@ -487,28 +479,6 @@ spec:
               value: "http://zabbix-web-service:10053/report"
             - name: ZBX_DEBUGLEVEL
               value: "3"
-            - name: ZBX_STARTPOLLERS
-              value: ""
-            - name: ZBX_STARTPREPROCESSORS
-              value: ""
-            - name: ZBX_STARTPOLLERSUNREACHABLE
-              value: ""
-            - name: ZBX_STARTTRAPPERS
-              value: ""
-            - name: ZBX_STARTPINGERS
-              value: ""
-            - name: ZBX_STARTDISCOVERERS
-              value: ""
-            - name: ZBX_STARTHTTPPOLLERS
-              value: ""
-            - name: ZBX_STARTIPMIPOLLERS
-              value: ""
-            - name: ZBX_STARTTIMERS
-              value: ""
-            - name: ZBX_STARTESCALATORS
-              value: ""
-            - name: ZBX_STARTALERTERS
-              value: ""
             - name: ZBX_JAVAGATEWAY_ENABLE
               value: "true"
             - name: ZBX_JAVAGATEWAY
@@ -517,82 +487,12 @@ spec:
               value: "10052"
             - name: ZBX_STARTJAVAPOLLERS
               value: "5"
-            - name: ZBX_STARTLLDPROCESSORS
-              value: ""
-            - name: ZBX_STATSALLOWEDIP
-              value: ""
-            - name: ZBX_STARTVMWARECOLLECTORS
-              value: ""
-            - name: ZBX_VMWAREFREQUENCY
-              value: ""
-            - name: ZBX_VMWAREPERFFREQUENCY
-              value: ""
-            - name: ZBX_VMWARECACHESIZE
-              value: ""
-            - name: ZBX_VMWARETIMEOUT
-              value: ""
             - name: ZBX_ENABLE_SNMP_TRAPS
               value: "true"
-            - name: ZBX_HOUSEKEEPINGFREQUENCY
-              value: ""
-            - name: ZBX_MAXHOUSEKEEPERDELETE
-              value: ""
-            - name: ZBX_CACHESIZE
-              value: ""
-            - name: ZBX_CACHEUPDATEFREQUENCY
-              value: ""
-            - name: ZBX_STARTDBSYNCERS
-              value: ""
-            - name: ZBX_HISTORYCACHESIZE
-              value: ""
-            - name: ZBX_HISTORYINDEXCACHESIZE
-              value: ""
-            - name: ZBX_TRENDCACHESIZE
-              value: ""
-            - name: ZBX_VALUECACHESIZE
-              value: ""
             - name: ZBX_TIMEOUT
               value: "4"
-            - name: ZBX_TRAPPERIMEOUT
-              value: ""
-            - name: ZBX_UNREACHABLEPERIOD
-              value: ""
-            - name: ZBX_UNAVAILABLEDELAY
-              value: ""
-            - name: ZBX_UNREACHABLEDELAY
-              value: ""
             - name: ZBX_LOGSLOWQUERIES
               value: "3000"
-            - name: ZBX_STARTPROXYPOLLERS
-              value: ""
-            - name: ZBX_PROXYCONFIGFREQUENCY
-              value: ""
-            - name: ZBX_PROXYDATAFREQUENCY
-              value: ""
-            - name: ZBX_EXPORTFILESIZE
-              value: ""
-            - name: ZBX_LOADMODULE
-              value: ""
-            - name: ZBX_TLSCAFILE
-              value: ""
-            - name: ZBX_TLSCRLFILE
-              value: ""
-            - name: ZBX_TLSCERTFILE
-              value: ""
-            - name: ZBX_TLSKEYFILE
-              value: ""
-            - name: ZBX_TLSCIPHERALL
-              value: ""
-            - name: ZBX_TLSCIPHERALL13
-              value: ""
-            - name: ZBX_TLSCIPHERCERT
-              value: ""
-            - name: ZBX_TLSCIPHERCERT13
-              value: ""
-            - name: ZBX_TLSCIPHERPSK
-              value: ""
-            - name: ZBX_TLSCIPHERPSK13
-              value: ""
             - name: DEBUG_MODE
               value: "false"
           volumeMounts:
