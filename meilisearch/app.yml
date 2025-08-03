@@ -109,6 +109,8 @@ spec:
           envFrom:
             - configMapRef:
                 name: meilisearch-environment
+            - secretRef:
+                name: meilisearch-credentials
           ports:
             - name: http
               containerPort: 7700
