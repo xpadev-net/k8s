@@ -23,7 +23,7 @@ metadata:
     app.kubernetes.io/component: search-engine
     app.kubernetes.io/part-of: meilisearch
 data:
-  MEILI_ENV: "production"
+  MEILI_ENV: "development"
   MEILI_NO_ANALYTICS: "true"
 ---
 # Source: meilisearch/templates/service.yaml
@@ -109,8 +109,6 @@ spec:
           envFrom:
             - configMapRef:
                 name: meilisearch-environment
-            - secretRef:
-                name: meilisearch-credentials
           ports:
             - name: http
               containerPort: 7700
