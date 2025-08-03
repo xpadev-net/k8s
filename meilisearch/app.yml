@@ -38,7 +38,7 @@ metadata:
     app.kubernetes.io/component: search-engine
     app.kubernetes.io/part-of: meilisearch
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   ports:
     - port: 7700
       targetPort: http
