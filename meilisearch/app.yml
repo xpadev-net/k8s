@@ -93,7 +93,7 @@ spec:
 
       containers:
         - name: meilisearch
-          image: "getmeili/meilisearch:v1.20.0"
+          image: "getmeili/meilisearch:v1.24.0"
           imagePullPolicy: IfNotPresent
           securityContext:
             allowPrivilegeEscalation: false
