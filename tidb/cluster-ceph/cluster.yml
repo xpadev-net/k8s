@@ -156,9 +156,4 @@ spec:
     service:
       type: LoadBalancer
       loadBalancerIP: 10.153.11.3
-      ports:
-        - name: mysql-alias
-          port: 3306
-          targetPort: 4000
-          protocol: TCP
     config: {}
