@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://mysql.github.io/mysql-operator/
-    chart: mysql-operator/mysql-innodbcluster
+    chart: mysql-innodbcluster
     targetRevision: 2.2.6
   destination:
     server: https://kubernetes.default.svc
