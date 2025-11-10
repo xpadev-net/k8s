@@ -1,4 +1,4 @@
-#https://raw.githubusercontent.com/mysql/mysql-operator/9.5.0-2.2.6/deploy/deploy-operator.yaml
+#https://raw.githubusercontent.com/mysql/mysql-operator/8.4.7-2.1.9/deploy/deploy-operator.yaml
 # The main role for the operator
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
@@ -93,35 +93,13 @@ rules:
     verbs: ["get", "patch"]
   - apiGroups: ["mysql.oracle.com"]
     resources: ["innodbclusters"]
-    verbs: ["get", "watch", "list", "patch"]
+    verbs: ["get", "watch", "list"]
   - apiGroups: ["mysql.oracle.com"]
     resources: ["mysqlbackups"]
     verbs: ["create", "get", "list", "patch", "update", "watch", "delete"]
   - apiGroups: ["mysql.oracle.com"]
     resources: ["mysqlbackups/status"]
     verbs: ["get", "patch", "update", "watch"]
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
-metadata:
-  name: mysql-switchover
-rules:
-  # Kopf needs patch on secrets or the sidecar will throw
-  - apiGroups: [""]
-    resources: ["events"]
-    verbs: ["create", "patch", "update"]
-  - apiGroups: [""]
-    resources: ["pods"]
-    verbs: ["get", "list"]
-  - apiGroups: [""]
-    resources: ["secrets"]
-    verbs: ["get"]
-  - apiGroups: ["mysql.oracle.com"]
-    resources: ["innodbclusters"]
-    verbs: ["get"]
-  - apiGroups: ["mysql.oracle.com"]
-    resources: ["innodbclusters/status"]
-    verbs: ["get", "patch"]
 ---
 # Give access to the operator
 apiVersion: rbac.authorization.k8s.io/v1
@@ -166,7 +144,7 @@ metadata:
     version: "1.0"
     app.kubernetes.io/name: mysql-operator
     app.kubernetes.io/instance: mysql-operator
-    app.kubernetes.io/version: 9.5.0-2.2.6
+    app.kubernetes.io/version: 8.4.7-2.1.9
     app.kubernetes.io/component: controller
     app.kubernetes.io/managed-by: mysql-operator
     app.kubernetes.io/created-by: mysql-operator
@@ -180,11 +158,9 @@ spec:
       labels:
         name: mysql-operator
     spec:
-      securityContext:
-        runAsNonRoot: true
       containers:
         - name: mysql-operator
-          image: container-registry.oracle.com/mysql/community-operator:9.5.0-2.2.6
+          image: container-registry.oracle.com/mysql/community-operator:8.4.7-2.1.9
           imagePullPolicy: IfNotPresent
           args:
             [
@@ -212,14 +188,10 @@ spec:
             - name: tmpdir
               mountPath: /tmp
           securityContext:
-            capabilities:
-              drop:
-                - ALL
             runAsUser: 2
             allowPrivilegeEscalation: false
             privileged: false
             readOnlyRootFilesystem: true
-            runAsNonRoot: true
       volumes:
         - name: mysqlsh-home
           emptyDir: {}

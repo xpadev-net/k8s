@@ -1,4 +1,4 @@
-#https://raw.githubusercontent.com/mysql/mysql-operator/9.5.0-2.2.6/deploy/deploy-crds.yaml
+#https://raw.githubusercontent.com/mysql/mysql-operator/8.4.7-2.1.9/deploy/deploy-crds.yaml
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
