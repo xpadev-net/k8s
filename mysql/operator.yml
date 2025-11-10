@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mysql-operator
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://mysql.github.io/mysql-operator/
+    chart: mysql-operator/mysql-operator
+    targetRevision: 2.2.6
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: mysql-operator
+  syncPolicy:
+    syncOptions:
+      - ServerSideApply=true
+      - CreateNamespace=true
