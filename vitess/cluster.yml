@@ -117,6 +117,7 @@ spec:
                         memory: 512Mi
                   dataVolumeClaimTemplate:
                     accessModes: ["ReadWriteOnce"]
+                    storageClassName: rook-ceph-block
                     resources:
                       requests:
                         storage: 10Gi
