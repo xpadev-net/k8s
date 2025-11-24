@@ -11,10 +11,11 @@ spec:
     targetRevision: v1.18.6
   destination:
     server: https://kubernetes.default.svc
-    namespace: tidb-admin
+    namespace: rook-ceph
   syncPolicy:
     syncOptions:
       - ServerSideApply=true
+      - CreateNamespace=true
     automated:
       prune: false
       selfHeal: false
