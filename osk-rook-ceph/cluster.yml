@@ -183,7 +183,7 @@ spec:
                 - key: topology.kubernetes.io/zone
                   operator: In
                   values:
-                    - tokyo1a
+                    - osaka1a
   #       requiredDuringSchedulingIgnoredDuringExecution:
   #         nodeSelectorTerms:
   #         - matchExpressions:
