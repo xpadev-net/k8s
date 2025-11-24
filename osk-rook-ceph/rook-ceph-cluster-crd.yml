@@ -11,7 +11,7 @@ spec:
     targetRevision: v1.18.6
   destination:
     server: https://kubernetes.default.svc
-    namespace: rook-ceph
+    namespace: tidb-admin
   syncPolicy:
     syncOptions:
       - ServerSideApply=true
