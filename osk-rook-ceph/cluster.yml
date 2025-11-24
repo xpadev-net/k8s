@@ -380,25 +380,34 @@ spec:
       mon:
         disabled: false
         interval: 45s
+        timeout: 30s
       osd:
         disabled: false
         interval: 60s
+        timeout: 30s
       status:
         disabled: false
         interval: 60s
+        timeout: 30s
     # Change pod liveness probe timing or threshold values. Works for all mon,mgr,osd daemons.
     livenessProbe:
       mon:
         disabled: false
+        timeout: 30s
       mgr:
         disabled: false
+        timeout: 30s
       osd:
         disabled: false
+        timeout: 30s
     # Change pod startup probe timing or threshold values. Works for all mon,mgr,osd daemons.
     startupProbe:
       mon:
         disabled: false
+        timeout: 30s
       mgr:
         disabled: false
+        timeout: 30s
       osd:
         disabled: false
+        timeout: 30s
