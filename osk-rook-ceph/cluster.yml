@@ -241,37 +241,38 @@ spec:
     #The requests and limits set here, allow the mgr pod to use half of one CPU core and 1 gigabyte of memory
     mgr:
       limits:
+        cpu: "1000m"
         memory: "1024Mi"
       requests:
         cpu: "500m"
         memory: "1024Mi"
     crashcollector:
       limits:
-        cpu: 100m
+        cpu: 1000m
         memory: 256Mi
       requests:
-        cpu: 100m
+        cpu: 500m
         memory: 256Mi
     exporter:
       limits:
-        cpu: 100m
+        cpu: 1000m
         memory: 128Mi
       requests:
-        cpu: 100m
+        cpu: 500m
         memory: 128Mi
     mon:
       limits:
-        cpu: 100m
-        memory: 512Mi
+        cpu: 1000m
+        memory: 1024Mi
       requests:
-        cpu: 100m
+        cpu: 500m
         memory: 256Mi
     osd:
       limits:
-        cpu: 200m
+        cpu: 1000m
         memory: 2Gi
       requests:
-        cpu: 100m
+        cpu: 500m
         memory: 2Gi
   # The above example requests/limits can also be added to the other components
   #   mon:
