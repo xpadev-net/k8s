@@ -1946,6 +1946,7 @@ spec:
         app: metallb
         component: speaker
     spec:
+      dnsPolicy: ClusterFirst
       containers:
         - args:
             - --port=7472
