@@ -41,7 +41,7 @@ spec:
               topologyKey: kubernetes.io/hostname
   startScriptVersion: v2
   helper:
-    image: alpine:3.23.0
+    image: alpine:3.23.3
   pd:
     baseImage: pingcap/pd
     maxFailoverCount: 0
