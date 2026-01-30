@@ -109,10 +109,10 @@ spec:
     requests:
       storage: "10Gi"
       cpu: 4000m
-      memory: 16Gi
+      memory: 8Gi
     limits:
       cpu: 8000m
-      memory: 32Gi
+      memory: 16Gi
     config:
       storage:
         # In basic examples, we set this to avoid using too much storage.
