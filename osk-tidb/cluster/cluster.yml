@@ -67,7 +67,7 @@ spec:
                       - pd
               topologyKey: kubernetes.io/hostname
     # if storageClassName is not set, the default Storage Class of the Kubernetes cluster will be used
-    storageClassName: local-storage
+    storageClassName: longhorn
     requests:
       storage: "10Gi"
       cpu: 50m
@@ -105,7 +105,7 @@ spec:
                       - tikv
               topologyKey: kubernetes.io/hostname
     # if storageClassName is not set, the default Storage Class of the Kubernetes cluster will be used
-    storageClassName: local-storage
+    storageClassName: longhorn
     requests:
       storage: "10Gi"
       cpu: 1
