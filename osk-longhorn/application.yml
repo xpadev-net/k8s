@@ -19,6 +19,9 @@ spec:
             jobEnabled: false
           csi:
             kubeletRootDir: /var/snap/microk8s/common/var/lib/kubelet
+          metrics:
+            serviceMonitor:
+              enabled: true
 
   destination:
     server: https://kubernetes.default.svc
