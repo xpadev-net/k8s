@@ -1,0 +1,6 @@
+global:
+  storageClass: longhorn
+
+clickhouse:
+  # SigNoz ドキュメントの最小例に合わせてカスタム StorageClass を有効化
+  installCustomStorageClass: true
