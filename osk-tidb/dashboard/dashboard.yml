@@ -19,5 +19,4 @@ spec:
     memory: 128Mi
     storage: 10Gi
   limits:
-    cpu: 100m
     memory: 128Mi
