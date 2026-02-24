@@ -73,8 +73,8 @@ spec:
       cpu: 2000m
       memory: 4Gi
     limits:
-      cpu: 4000m
-      memory: 8Gi
+      cpu: 2000m
+      memory: 4Gi
     config: {}
   tikv:
     baseImage: pingcap/tikv
@@ -111,8 +111,8 @@ spec:
       cpu: 4000m
       memory: 8Gi
     limits:
-      cpu: 8000m
-      memory: 16Gi
+      cpu: 4000m
+      memory: 8Gi
     config:
       storage:
         # In basic examples, we set this to avoid using too much storage.
@@ -151,8 +151,8 @@ spec:
       cpu: 4000m
       memory: 8Gi
     limits:
-      cpu: 8000m
-      memory: 16Gi
+      cpu: 4000m
+      memory: 8Gi
     service:
       type: LoadBalancer
       loadBalancerIP: 10.154.11.3
