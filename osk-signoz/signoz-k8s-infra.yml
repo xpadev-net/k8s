@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: osk-signoz-k8s-infra
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://charts.signoz.io
+    chart: k8s-infra
+    targetRevision: 0.15.0
+    helm:
+      values: |
+        clusterName: k8s-osk
+        otelCollectorEndpoint: osk-signoz-chart-otel-collector.signoz.svc.cluster.local:4317
+        otelInsecure: true
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: platform
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
