@@ -56,18 +56,15 @@ spec:
                   values:
                     - osaka1a
       podAntiAffinity:
-        preferredDuringSchedulingIgnoredDuringExecution:
-          - weight: 100
-            podAffinityTerm:
-              labelSelector:
-                matchExpressions:
-                  - key: app.kubernetes.io/component
-                    operator: In
-                    values:
-                      - pd
-              topologyKey: kubernetes.io/hostname
-    # if storageClassName is not set, the default Storage Class of the Kubernetes cluster will be used
-    storageClassName: longhorn
+        requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+                - key: app.kubernetes.io/component
+                  operator: In
+                  values:
+                    - pd
+            topologyKey: kubernetes.io/hostname
+    storageClassName: longhorn-local
     requests:
       storage: "10Gi"
       cpu: 2000m
@@ -94,16 +91,14 @@ spec:
                   values:
                     - osaka1a
       podAntiAffinity:
-        preferredDuringSchedulingIgnoredDuringExecution:
-          - weight: 100
-            podAffinityTerm:
-              labelSelector:
-                matchExpressions:
-                  - key: app.kubernetes.io/component
-                    operator: In
-                    values:
-                      - tikv
-              topologyKey: kubernetes.io/hostname
+        requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+                - key: app.kubernetes.io/component
+                  operator: In
+                  values:
+                    - tikv
+            topologyKey: kubernetes.io/hostname
     # if storageClassName is not set, the default Storage Class of the Kubernetes cluster will be used
     storageClassName: longhorn
     requests:
@@ -137,16 +132,14 @@ spec:
                   values:
                     - osaka1a
       podAntiAffinity:
-        preferredDuringSchedulingIgnoredDuringExecution:
-          - weight: 100
-            podAffinityTerm:
-              labelSelector:
-                matchExpressions:
-                  - key: app.kubernetes.io/component
-                    operator: In
-                    values:
-                      - tidb
-              topologyKey: kubernetes.io/hostname
+        requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+                - key: app.kubernetes.io/component
+                  operator: In
+                  values:
+                    - tidb
+            topologyKey: kubernetes.io/hostname
     requests:
       cpu: 4000m
       memory: 8Gi
