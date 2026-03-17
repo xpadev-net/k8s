@@ -67,11 +67,11 @@ spec:
     storageClassName: longhorn-local
     requests:
       storage: "10Gi"
-      cpu: 2000m
-      memory: 4Gi
+      cpu: 500m
+      memory: 512Mi
     limits:
-      cpu: 2000m
-      memory: 4Gi
+      cpu: 500m
+      memory: 512Mi
     config: {}
   tikv:
     baseImage: pingcap/tikv
@@ -103,11 +103,11 @@ spec:
     storageClassName: longhorn
     requests:
       storage: "10Gi"
-      cpu: 4000m
-      memory: 8Gi
+      cpu: 1000m
+      memory: 4Gi
     limits:
-      cpu: 4000m
-      memory: 8Gi
+      cpu: 1000m
+      memory: 4Gi
     config:
       storage:
         # In basic examples, we set this to avoid using too much storage.
@@ -141,11 +141,11 @@ spec:
                     - tidb
             topologyKey: kubernetes.io/hostname
     requests:
-      cpu: 4000m
-      memory: 8Gi
+      cpu: 1000m
+      memory: 2Gi
     limits:
-      cpu: 4000m
-      memory: 8Gi
+      cpu: 1000m
+      memory: 2Gi
     service:
       type: LoadBalancer
       loadBalancerIP: 10.154.11.3
