@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: tky-cloudflared-tunnel
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/xpadev-net/k8s.git
+    targetRevision: HEAD
+    path: common/cloudflared/overlays/tky
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
