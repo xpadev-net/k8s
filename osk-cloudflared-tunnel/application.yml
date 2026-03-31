@@ -7,12 +7,20 @@ spec:
   project: default
   source:
     repoURL: https://github.com/xpadev-net/k8s.git
-    targetRevision: HEAD
+    targetRevision: master
     path: common/cloudflared/overlays/osk
   destination:
     server: https://kubernetes.default.svc
-    namespace: default
+    namespace: cloudflared
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
+    retry:
+      limit: 5
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m
+    syncOptions:
+      - CreateNamespace=true
