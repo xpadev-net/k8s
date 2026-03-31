@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: osk-cloudflared-tunnel
+  name: osk-cloudflared-tunnel-app
   namespace: argocd
 spec:
   project: default

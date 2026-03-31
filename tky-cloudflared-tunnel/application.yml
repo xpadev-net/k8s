@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: tky-cloudflared-tunnel
+  name: tky-cloudflared-tunnel-app
   namespace: argocd
 spec:
   project: default
