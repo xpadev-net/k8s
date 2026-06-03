@@ -4,3 +4,8 @@ global:
 clickhouse:
   # SigNoz ドキュメントの最小例に合わせてカスタム StorageClass を有効化
   installCustomStorageClass: true
+  clickhouse:
+    configuration:
+      settings:
+        # broken parts が多数発生した場合にClickHouseが起動できなくなるのを防ぐ
+        merge_tree/max_suspicious_broken_parts: "10000"
