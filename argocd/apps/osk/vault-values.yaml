@@ -55,5 +55,3 @@ ui:
   activeVaultPodOnly: true
   serviceType: LoadBalancer
   loadBalancerIP: 10.154.11.20
-  annotations:
-    metallb.io/loadBalancerIPs: 10.154.11.20
