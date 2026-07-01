@@ -1,6 +1,6 @@
 # Plan: Vault tky Root Bootstrap
 
-- status: in_progress
+- status: completed
 - generated: 2026-07-01
 - last_updated: 2026-07-01
 - work_type: mixed
@@ -112,6 +112,10 @@
   - Summary: tky root app synced; tky Vault pods run but do not listen on 8200 because transit seal points at osk. osk Vault pods fail before start because `vault-transit-seal` is missing.
   - Validation evidence: `kubectl get pods`, `kubectl describe pod`, and generated Vault config inspection.
   - Notes: Initial mutual transit has a circular dependency.
+- 2026-07-01 20:14 Wave 3 completed: tky migrated back to transit seal
+  - Summary: tky Vault values restored the osk transit seal configuration and Argo CD synced it. Existing Shamir-sealed tky Vault was migrated to transit seal by restarting each Vault pod and applying `vault operator unseal -migrate` with the stored Shamir keys.
+  - Validation evidence: `vault status` on all tky Vault pods shows `Seal Type transit`, `Recovery Seal Type shamir`, and `Sealed false`; deleting `tky-vault-chart-0` after migration returned it to `Ready` without manual unseal.
+  - Notes: `tky-vault-chart` remains `Synced` and `Healthy`; osk Vault remains transit sealed and unsealed.
 
 ## Decision Log
 - 2026-07-01 17:49 Decision: use tky as bootstrap side.
