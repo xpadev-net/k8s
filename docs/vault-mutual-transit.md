@@ -14,6 +14,7 @@ This repository prepares the osk and tky Vault installs for HA Raft plus mutual 
   - active API endpoint: `http://10.153.11.20:8200`
   - unsealed by the transit engine on osk
   - transit key expected on osk: `tky-auto-unseal`
+  - storage class: `rook-ceph-block`
 
 ## Secret contract
 

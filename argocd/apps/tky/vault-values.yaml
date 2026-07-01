@@ -41,7 +41,7 @@ server:
   dataStorage:
     enabled: true
     size: 10Gi
-    storageClass: longhorn
+    storageClass: rook-ceph-block
   persistentVolumeClaimRetentionPolicy:
     whenDeleted: Retain
     whenScaled: Retain
