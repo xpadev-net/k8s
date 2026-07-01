@@ -30,6 +30,13 @@ server:
           }
         }
 
+        seal "transit" {
+          address = "http://10.154.11.20:8200"
+          key_name = "tky-auto-unseal"
+          mount_path = "transit/"
+          disable_renewal = "false"
+        }
+
         service_registration "kubernetes" {}
   dataStorage:
     enabled: true
@@ -38,6 +45,10 @@ server:
   persistentVolumeClaimRetentionPolicy:
     whenDeleted: Retain
     whenScaled: Retain
+  extraSecretEnvironmentVars:
+    - envName: VAULT_TOKEN
+      secretName: vault-transit-seal
+      secretKey: token
 
 ui:
   enabled: true
