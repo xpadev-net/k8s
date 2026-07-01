@@ -4,7 +4,6 @@ metadata:
   name: ix2215-tky-peer
   namespace: metallb-system
 spec:
-  disableMP: true
   myASN: 65000
   peerASN: 65000
   peerAddress: 192.168.0.1
