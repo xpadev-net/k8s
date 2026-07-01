@@ -7,10 +7,16 @@ metadata:
     argocd.argoproj.io/sync-wave: "10"
 spec:
   project: default
-  source:
-    repoURL: https://helm.releases.hashicorp.com
-    chart: vault
-    targetRevision: 0.33.0
+  sources:
+    - repoURL: https://helm.releases.hashicorp.com
+      chart: vault
+      targetRevision: 0.33.0
+      helm:
+        valueFiles:
+          - $values/argocd/apps/tky/vault-values.yaml
+    - repoURL: https://github.com/xpadev-net/k8s.git
+      targetRevision: master
+      ref: values
   destination:
     server: https://kubernetes.default.svc
     namespace: vault
@@ -20,3 +26,9 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+  ignoreDifferences:
+    - group: admissionregistration.k8s.io
+      kind: MutatingWebhookConfiguration
+      name: tky-vault-chart-agent-injector-cfg
+      jsonPointers:
+        - /webhooks/0/clientConfig/caBundle

@@ -1,0 +1,59 @@
+server:
+  standalone:
+    enabled: false
+  ha:
+    enabled: true
+    replicas: 3
+    raft:
+      enabled: true
+      setNodeId: true
+      config: |
+        ui = true
+
+        listener "tcp" {
+          tls_disable = 1
+          address = "[::]:8200"
+          cluster_address = "[::]:8201"
+        }
+
+        storage "raft" {
+          path = "/vault/data"
+
+          retry_join {
+            leader_api_addr = "http://tky-vault-chart-0.tky-vault-chart-internal:8200"
+          }
+          retry_join {
+            leader_api_addr = "http://tky-vault-chart-1.tky-vault-chart-internal:8200"
+          }
+          retry_join {
+            leader_api_addr = "http://tky-vault-chart-2.tky-vault-chart-internal:8200"
+          }
+        }
+
+        seal "transit" {
+          address = "http://10.154.11.20:8200"
+          key_name = "tky-auto-unseal"
+          mount_path = "transit/"
+          disable_renewal = "false"
+        }
+
+        service_registration "kubernetes" {}
+  dataStorage:
+    enabled: true
+    size: 10Gi
+    storageClass: longhorn
+  persistentVolumeClaimRetentionPolicy:
+    whenDeleted: Retain
+    whenScaled: Retain
+  extraSecretEnvironmentVars:
+    - envName: VAULT_TOKEN
+      secretName: vault-transit-seal
+      secretKey: token
+
+ui:
+  enabled: true
+  activeVaultPodOnly: true
+  serviceType: LoadBalancer
+  loadBalancerIP: 10.153.11.20
+  annotations:
+    metallb.io/loadBalancerIPs: 10.153.11.20
