@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: osk-signoz
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/xpadev-net/k8s
+    targetRevision: HEAD
+    path: osk-signoz
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      enabled: true

@@ -4,3 +4,8 @@ resources:
   - vault.yml
   - external-secrets.yml
   - cloudflared-tunnel.yml
+  - signoz.yml
+  - tidb-operator.yml
+  - tidb-crd.yml
+  - tidb-cluster.yml
+  - tidb-dashboard.yml
